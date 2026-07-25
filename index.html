@@ -6096,7 +6096,7 @@
     <link rel="stylesheet" href="weather-live-status.css?v=20260720-weather-status-v1" />
     <link rel="stylesheet" href="delivery-editorial-v1.css?v=20260724-delivery-rhythm-v8" />
     <link rel="stylesheet" href="pc-wide-stage-v1.css?v=20260724-air-restore-v7" />
-    <link rel="stylesheet" href="navigation-readability-v1.css?v=20260724-navigation-fallback-v3" />
+    <link rel="stylesheet" href="navigation-readability-v1.css?v=20260725-air-first-entry-v4" />
   </head>
   <body>
     <script>
@@ -9492,6 +9492,13 @@
         window.addEventListener("load", () => scheduleDesktopVisualLock("default"));
         window.addEventListener("resize", () => scheduleDesktopVisualLock("resize"));
         window.addEventListener("hashchange", () => scheduleDesktopVisualLock("route"));
+        window.addEventListener("zf:routechange", () => {
+          // Internal navigation uses pushState and dispatches zf:routechange,
+          // so hashchange does not fire. Clear the previous page's desktop
+          // width locks immediately, before the first air-page frame is drawn.
+          runDesktopVisualLock();
+          scheduleDesktopVisualLock("route");
+        });
         document.addEventListener("click", (event) => {
           if (event.target.closest("[data-water-sim-launch], .water-system-sim-tab")) {
             scheduleDesktopVisualLock("default");

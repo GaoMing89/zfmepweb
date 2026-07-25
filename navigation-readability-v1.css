@@ -28,6 +28,24 @@
       inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
   }
 
+  /* The air guide must never inherit the warm menu surface on PC. Keep a
+     solid dark fallback underneath the gradient for older rendering paths. */
+  html body .site-header > .nav-mega[data-tone="air"] .nav-mega-intro {
+    color: #fff !important;
+    background-color: #18272a !important;
+    background-image:
+      radial-gradient(circle at 86% 18%, rgba(111, 174, 229, 0.28), transparent 30%),
+      linear-gradient(148deg, #263b3e, #142326) !important;
+  }
+
+  html body .site-header > .nav-mega[data-tone="air"] .nav-mega-intro > p {
+    color: #9adce0 !important;
+  }
+
+  html body .site-header > .nav-mega[data-tone="air"] .nav-mega-intro :is(h2, span) {
+    color: #fff !important;
+  }
+
   html body .site-header .nav-mega-intro > p {
     color: rgba(218, 239, 235, 0.82) !important;
   }
