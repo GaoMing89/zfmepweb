@@ -435,6 +435,182 @@ html body main #landing .zf-home-system-reveal {
   }
 }
 
+/* Large-home complexity: lived-space scale without fabricating MEP topology. */
+html body main .zf-home-large-home {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.18fr);
+  gap: 0;
+  width: min(1704px, calc(100vw - 72px));
+  max-width: min(1704px, calc(100vw - 72px));
+  min-height: 740px;
+  margin: 0 auto;
+  overflow: hidden;
+  border: 1px solid rgba(29, 34, 37, 0.14);
+  border-radius: 28px;
+  background: #161817;
+  color: #f6f2ea;
+  isolation: isolate;
+}
+
+html body main .zf-home-large-home-visual {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  margin: 0;
+}
+
+html body main .zf-home-large-home-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, #181a18 0%, rgba(24, 26, 24, .98) 28%, rgba(24, 26, 24, .66) 44%, rgba(24, 26, 24, .08) 67%, rgba(24, 26, 24, .06) 100%),
+    linear-gradient(0deg, rgba(9, 12, 11, .48), transparent 42%);
+}
+
+html body main .zf-home-large-home-visual img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+html body main .zf-home-large-home-copy {
+  grid-column: 1;
+  align-self: center;
+  width: min(540px, calc(100% - 88px));
+  margin-left: clamp(34px, 6vw, 104px);
+  padding-block: 80px;
+}
+
+html body main .zf-home-large-home-copy .zf-home-story-kicker {
+  color: #bfddd4;
+}
+
+html body main .zf-home-large-home-copy h2 {
+  max-width: 540px;
+  margin: 0;
+  color: #fffaf1;
+  font: 520 clamp(42px, 4.1vw, 70px)/1.08 "Noto Serif SC", "Songti SC", serif;
+  letter-spacing: 0;
+}
+
+html body main .zf-home-large-home-copy > p:last-child {
+  max-width: 480px;
+  margin: 28px 0 0;
+  color: rgba(246, 242, 234, .76);
+  font: 400 clamp(15px, 1.08vw, 18px)/1.9 "PingFang SC", "Noto Sans SC", sans-serif;
+}
+
+html body main .zf-home-large-home-pains {
+  grid-column: 2;
+  align-self: end;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  gap: 10px;
+  padding: 0 clamp(28px, 3.4vw, 60px) 94px 20px;
+}
+
+html body main .zf-home-large-home-pains span {
+  padding: 11px 14px;
+  border: 1px solid rgba(255, 250, 241, .24);
+  border-radius: 4px;
+  background: rgba(19, 22, 20, .68);
+  color: rgba(255, 250, 241, .9);
+  font: 500 clamp(13px, .94vw, 15px)/1.3 "PingFang SC", "Noto Sans SC", sans-serif;
+  backdrop-filter: blur(12px);
+}
+
+html body main .zf-home-large-home-pains .is-alert {
+  border-color: rgba(255, 98, 65, .64);
+  background: rgba(118, 38, 24, .72);
+  color: #fff0e9;
+}
+
+html body main .zf-home-large-home-closing {
+  position: absolute;
+  right: clamp(28px, 3.4vw, 60px);
+  bottom: 34px;
+  margin: 0;
+  color: #d8eee7;
+  font: 500 clamp(15px, 1.05vw, 18px)/1.5 "Noto Serif SC", "Songti SC", serif;
+}
+
+@media (max-width: 980px) {
+  html body main .zf-home-large-home {
+    width: calc(100vw - 36px);
+    max-width: calc(100vw - 36px);
+    min-height: 780px;
+    grid-template-columns: 1fr;
+  }
+
+  html body main .zf-home-large-home-visual::after {
+    background: linear-gradient(180deg, rgba(17, 19, 18, .88) 0%, rgba(17, 19, 18, .52) 52%, rgba(17, 19, 18, .84) 100%);
+  }
+
+  html body main .zf-home-large-home-copy {
+    grid-column: 1;
+    align-self: start;
+    width: auto;
+    margin: 0;
+    padding: 64px 46px 20px;
+  }
+
+  html body main .zf-home-large-home-pains {
+    grid-column: 1;
+    padding: 20px 46px 92px;
+  }
+}
+
+@media (max-width: 640px) {
+  html body main .zf-home-large-home {
+    width: calc(100vw - 20px);
+    max-width: calc(100vw - 20px);
+    min-height: 780px;
+    border-radius: 24px;
+  }
+
+  html body main .zf-home-large-home-visual img {
+    object-position: 60% center;
+  }
+
+  html body main .zf-home-large-home-copy {
+    padding: 42px 24px 18px;
+  }
+
+  html body main .zf-home-large-home-copy h2 {
+    font-size: clamp(34px, 9vw, 42px);
+    line-height: 1.16;
+  }
+
+  html body main .zf-home-large-home-copy > p:last-child {
+    margin-top: 20px;
+    font-size: 14px;
+    line-height: 1.8;
+  }
+
+  html body main .zf-home-large-home-pains {
+    justify-content: flex-start;
+    gap: 8px;
+    padding: 14px 24px 78px;
+  }
+
+  html body main .zf-home-large-home-pains span {
+    padding: 8px 10px;
+    font-size: 12px;
+  }
+
+  html body main .zf-home-large-home-closing {
+    right: 24px;
+    bottom: 28px;
+    left: 24px;
+    font-size: 14px;
+  }
+}
+
 html body main #landing .zf-home-system-reveal-media,
 html body main #landing .zf-home-system-reveal-media img {
   display: block;
