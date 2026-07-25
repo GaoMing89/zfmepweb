@@ -866,6 +866,135 @@ html body[data-page="delivery"] main > #fit.fit.delivery-prelude .delivery-hero-
   border: 1px solid rgba(255, 255, 255, .16) !important;
 }
 
+/* Core method: design and construction share one visual field. */
+html body[data-page="delivery"] main > #delivery-method.zf-delivery-method {
+  display: grid !important;
+  grid-template-columns: 1fr !important;
+  width: calc(100vw - 72px) !important;
+  max-width: none !important;
+  margin-inline: auto !important;
+  padding: 0 0 clamp(58px, 5vw, 82px) !important;
+  overflow: hidden !important;
+  border-radius: clamp(24px, 2.4vw, 38px) !important;
+  background: #f5f1e8 !important;
+}
+
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-media,
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-intro {
+  grid-area: 1 / 1 !important;
+}
+
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-media {
+  position: relative !important;
+  width: 100% !important;
+  height: clamp(640px, 72vh, 820px) !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  border-radius: inherit !important;
+}
+
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-media::after {
+  content: "" !important;
+  position: absolute !important;
+  inset: 0 !important;
+  pointer-events: none !important;
+  background:
+    linear-gradient(90deg, rgba(12, 16, 18, .84) 0%, rgba(12, 16, 18, .66) 25%, rgba(12, 16, 18, .18) 47%, transparent 68%) !important;
+}
+
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-media img {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+}
+
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-intro {
+  position: relative !important;
+  z-index: 1 !important;
+  align-self: center !important;
+  display: block !important;
+  width: min(680px, 43vw) !important;
+  margin: 0 !important;
+  padding: clamp(54px, 6vw, 108px) 0 clamp(54px, 6vw, 108px) clamp(54px, 7vw, 128px) !important;
+  color: #fff !important;
+}
+
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-intro .eyebrow {
+  margin: 0 0 24px !important;
+  color: #78dce0 !important;
+}
+
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-intro h2 {
+  max-width: 650px !important;
+  margin: 0 !important;
+  color: #fff !important;
+  font-size: clamp(46px, 4.2vw, 70px) !important;
+  line-height: 1.14 !important;
+  text-wrap: balance !important;
+}
+
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-intro > p:last-child {
+  max-width: 570px !important;
+  margin: 30px 0 0 !important;
+  color: rgba(255, 255, 255, .78) !important;
+  font-size: clamp(16px, 1.2vw, 19px) !important;
+  line-height: 1.85 !important;
+}
+
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-sequence,
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-rule {
+  width: calc(100% - clamp(48px, 7vw, 128px) * 2) !important;
+  margin-inline: auto !important;
+}
+
+html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-sequence {
+  margin-top: clamp(42px, 4vw, 64px) !important;
+}
+
+@media (max-width: 900px) {
+  html body[data-page="delivery"] main > #delivery-method.zf-delivery-method {
+    width: calc(100vw - 28px) !important;
+    padding: 0 0 34px !important;
+    border-radius: 26px !important;
+  }
+
+  html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-media {
+    height: 660px !important;
+  }
+
+  html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-media::after {
+    background:
+      linear-gradient(180deg, rgba(12, 16, 18, .8) 0%, rgba(12, 16, 18, .56) 58%, rgba(12, 16, 18, .2) 100%) !important;
+  }
+
+  html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-media img {
+    object-position: 55% 50% !important;
+  }
+
+  html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-intro {
+    align-self: start !important;
+    width: auto !important;
+    padding: 52px 26px !important;
+  }
+
+  html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-intro h2 {
+    max-width: 11em !important;
+    font-size: clamp(38px, 10vw, 48px) !important;
+  }
+
+  html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-intro > p:last-child {
+    max-width: 30em !important;
+    margin-top: 24px !important;
+  }
+
+  html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-sequence,
+  html body[data-page="delivery"] main > #delivery-method .zf-delivery-method-rule {
+    width: calc(100% - 40px) !important;
+  }
+}
+
 html body[data-page="delivery"] main > #fit.fit.delivery-prelude .delivery-hero-principles > span,
 html body[data-page="delivery"] main > #fit.fit.delivery-prelude .delivery-hero-principles > span:nth-child(2) {
   min-height: 98px !important;
