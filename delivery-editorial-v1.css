@@ -161,6 +161,128 @@ html body[data-page="delivery"] main > #fit.fit.delivery-prelude .delivery-hero-
   border-right: 0 !important;
 }
 
+/* Keep the opening mask in the same clipped layer as the image. This prevents
+   legacy image overscan from showing bright strips above or below the mask. */
+html body[data-page="delivery"] main > #fit.fit.delivery-prelude > .delivery-scene-media {
+  isolation: isolate !important;
+}
+
+html body[data-page="delivery"] main > #fit.fit.delivery-prelude > .delivery-scene-media::after {
+  position: absolute !important;
+  z-index: 2 !important;
+  inset: 0 !important;
+  display: block !important;
+  border-radius: inherit !important;
+  background:
+    linear-gradient(90deg, rgba(10, 18, 22, .96) 0%, rgba(10, 18, 22, .84) 32%, rgba(10, 18, 22, .36) 58%, rgba(10, 18, 22, .06) 82%, rgba(10, 18, 22, 0) 100%),
+    linear-gradient(0deg, rgba(10, 18, 22, .46) 0%, rgba(10, 18, 22, 0) 54%) !important;
+  pointer-events: none !important;
+  content: "" !important;
+}
+
+html body[data-page="delivery"] main > #fit.fit.delivery-prelude > .delivery-hero-copy {
+  background: transparent !important;
+}
+
+html body[data-page="delivery"] .zf-delivery-product-hero {
+  position: relative !important;
+  min-height: clamp(620px, 46vw, 820px) !important;
+  margin: calc(-1 * clamp(74px, 7vw, 118px)) calc(-1 * clamp(42px, 5vw, 80px)) clamp(70px, 6vw, 98px) !important;
+  overflow: hidden !important;
+  border-radius: 52px 16px 30px 10px !important;
+  background: #152126 !important;
+  isolation: isolate !important;
+}
+
+html body[data-page="delivery"] .zf-delivery-product-hero > figure,
+html body[data-page="delivery"] .zf-delivery-product-hero > figure > img {
+  position: absolute !important;
+  inset: 0 !important;
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  margin: 0 !important;
+}
+
+html body[data-page="delivery"] .zf-delivery-product-hero > figure > img {
+  object-fit: cover !important;
+  object-position: 50% 50% !important;
+  filter: saturate(1.03) contrast(1.04) !important;
+}
+
+html body[data-page="delivery"] .zf-delivery-product-hero::after {
+  position: absolute !important;
+  z-index: 1 !important;
+  inset: 0 !important;
+  background:
+    linear-gradient(90deg, rgba(10, 18, 22, .97) 0%, rgba(10, 18, 22, .88) 34%, rgba(10, 18, 22, .42) 58%, rgba(10, 18, 22, .06) 82%, rgba(10, 18, 22, 0) 100%),
+    linear-gradient(0deg, rgba(10, 18, 22, .42) 0%, rgba(10, 18, 22, 0) 54%) !important;
+  pointer-events: none !important;
+  content: "" !important;
+}
+
+html body[data-page="delivery"] .zf-delivery-product-hero > header {
+  position: relative !important;
+  z-index: 2 !important;
+  display: grid !important;
+  grid-template-columns: minmax(0, 1fr) !important;
+  align-content: center !important;
+  justify-items: start !important;
+  width: min(860px, 54%) !important;
+  min-height: inherit !important;
+  margin: 0 !important;
+  padding: clamp(64px, 6vw, 104px) clamp(48px, 4vw, 72px) !important;
+  box-sizing: border-box !important;
+  color: #fff !important;
+}
+
+html body[data-page="delivery"] .zf-delivery-product-hero > header .eyebrow {
+  color: #76dce3 !important;
+}
+
+html body[data-page="delivery"] .zf-delivery-product-hero > header h2 {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin: 18px 0 26px !important;
+  color: #fff !important;
+  font-size: clamp(42px, 3vw, 54px) !important;
+  line-height: 1.16 !important;
+  white-space: normal !important;
+  overflow-wrap: break-word !important;
+  text-shadow: 0 2px 18px rgba(0, 0, 0, .28) !important;
+}
+
+html body[data-page="delivery"] .zf-delivery-product-hero > header > p:last-child {
+  width: 100% !important;
+  max-width: 580px !important;
+  margin: 0 !important;
+  color: rgba(255, 255, 255, .78) !important;
+  font-size: 17px !important;
+  line-height: 1.9 !important;
+  text-shadow: 0 1px 12px rgba(0, 0, 0, .24) !important;
+}
+
+@media (max-width: 900px) {
+  html body[data-page="delivery"] .zf-delivery-product-hero {
+    min-height: 660px !important;
+    margin: -48px -22px 54px !important;
+    border-radius: 28px 10px 24px 8px !important;
+  }
+
+  html body[data-page="delivery"] .zf-delivery-product-hero > header {
+    align-content: end !important;
+    width: 100% !important;
+    padding: 48px 24px !important;
+    box-sizing: border-box !important;
+    background: linear-gradient(0deg, rgba(10, 18, 22, .96) 0%, rgba(10, 18, 22, .72) 56%, rgba(10, 18, 22, .12) 100%) !important;
+  }
+
+  html body[data-page="delivery"] .zf-delivery-product-hero > header h2 {
+    font-size: clamp(30px, 8vw, 38px) !important;
+    line-height: 1.2 !important;
+  }
+}
+
 html body[data-page="delivery"] main > #fit.fit.delivery-prelude .delivery-hero-principles :is(i, strong, small) {
   position: relative !important;
   color: #fff !important;
