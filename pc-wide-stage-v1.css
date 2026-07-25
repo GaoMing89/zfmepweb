@@ -97,6 +97,22 @@
     object-position: 50% 50% !important;
   }
 
+  /* The second basement scene should read in one glance instead of consuming
+     more than a desktop viewport. Keep it panoramic and preserve its center. */
+  html body[data-page="basement-system"] main > #basement-definition .basement-context-media--forget {
+    height: clamp(620px, 72vh, 780px) !important;
+    max-height: min(72vh, 780px, calc(100svh - 220px)) !important;
+    aspect-ratio: auto !important;
+  }
+
+  html body[data-page="basement-system"] main > #basement-definition .basement-context-media--forget > img {
+    width: 100% !important;
+    height: 100% !important;
+    aspect-ratio: auto !important;
+    object-fit: cover !important;
+    object-position: 50% 48% !important;
+  }
+
   /* Route openings: protect left-side white copy without greying the whole image. */
   html body[data-page="water-supply-drainage"] main #water-problem#water-problem .zf-route-opening-copy.zf-route-opening-copy::after,
   html body[data-page="basement-system"] main #basement-definition#basement-definition .zf-route-opening-copy.zf-route-opening-copy::after {
