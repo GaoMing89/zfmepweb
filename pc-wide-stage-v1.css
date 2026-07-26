@@ -7,9 +7,13 @@
 
   /* Homepage */
   html body[data-page="home"] main #landing .zf-home-system-reveal,
-  html body[data-page="home"] main #landing .zf-home-capability-spectrum {
+  html body[data-page="home"] main #landing .zf-home-capability-spectrum,
+  html body[data-page="home"] main #landing > .zf-home-large-home,
+  html body[data-page="home"] main #landing > .zf-home-nourish,
+  html body[data-page="home"] main #landing > .zf-home-health-comfort {
     width: var(--zf-pc-stage) !important;
     max-width: none !important;
+    margin-inline: auto !important;
   }
 
   html body[data-page="home"] main > #home.zf-home-story {
@@ -19,7 +23,7 @@
   }
 
   html body[data-page="home"] main #landing .zf-home-narrative-bridge {
-    width: var(--zf-pc-stage-soft) !important;
+    width: var(--zf-pc-stage) !important;
     max-width: none !important;
   }
 
@@ -44,11 +48,14 @@
   html body[data-page="philosophy"] main > #home.zf-home-story,
   html body[data-page="philosophy"] main #home > :is(
     .zf-philosophy-opening,
+    .zf-philosophy-bridge,
     .zf-home-human,
-    .zf-home-senses
+    .zf-home-senses,
+    #home-capabilities
   ) {
     width: var(--zf-pc-stage) !important;
     max-width: none !important;
+    margin-inline: auto !important;
   }
 
   /* Delivery: one continuous wide visual stage. */

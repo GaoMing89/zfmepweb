@@ -1,0 +1,65 @@
+/* PC wide fields and localized image shading.
+   Loaded last so page-specific legacy caps and full-frame veils cannot win. */
+
+html body[data-page="home"] main #landing .zf-home-hero-image {
+  filter: saturate(1.06) contrast(1.035) brightness(1.025) !important;
+}
+
+html body[data-page="home"] main #landing .zf-home-hero-visual::before,
+html body[data-page="home"] main #landing .zf-slide-air .zf-home-hero-visual::before {
+  background: linear-gradient(
+    90deg,
+    rgba(7, 14, 18, .66) 0%,
+    rgba(7, 14, 18, .52) 20%,
+    rgba(7, 14, 18, .22) 34%,
+    rgba(7, 14, 18, .04) 46%,
+    transparent 54%
+  ) !important;
+}
+
+html body[data-page="home"] main #landing .zf-home-hero-visual::after {
+  background: linear-gradient(
+    180deg,
+    transparent 70%,
+    rgba(6, 12, 15, .10) 100%
+  ) !important;
+}
+
+html body[data-page="philosophy"] main #home .zf-philosophy-opening > figure > img {
+  filter: saturate(1.04) contrast(1.025) brightness(1.025) !important;
+}
+
+html body[data-page="philosophy"] main #home .zf-philosophy-opening > figure::after {
+  background: linear-gradient(
+    90deg,
+    rgba(8, 13, 20, .70) 0%,
+    rgba(8, 13, 20, .54) 21%,
+    rgba(8, 13, 20, .20) 35%,
+    rgba(8, 13, 20, .03) 47%,
+    transparent 53%
+  ) !important;
+}
+
+@media (min-width: 1440px) {
+  html body[data-page="home"] main #landing > :is(
+    .zf-home-large-home,
+    .zf-home-nourish,
+    .zf-home-health-comfort,
+    .zf-home-narrative-bridge,
+    .zf-home-system-reveal,
+    .zf-home-capability-spectrum
+  ),
+  html body[data-page="philosophy"] main #home > :is(
+    .zf-philosophy-opening,
+    .zf-philosophy-bridge,
+    .zf-home-human,
+    .zf-home-senses,
+    #home-capabilities
+  ),
+  html body[data-page="philosophy"] main > #home-capabilities {
+    width: calc(100vw - 72px) !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}

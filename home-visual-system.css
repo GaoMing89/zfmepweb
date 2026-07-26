@@ -566,6 +566,73 @@ html body main #landing .zf-home-system-reveal {
   }
 }
 
+/* 2026-07-27: wide-screen continuity and clear-right image treatment.
+   Keep copy protected on the left without laying a grey veil across the scene. */
+html body[data-page="home"] main #landing .zf-home-hero-image {
+  filter: saturate(1.06) contrast(1.035) brightness(1.025) !important;
+}
+
+html body[data-page="home"] main #landing .zf-home-hero-visual::before,
+html body[data-page="home"] main #landing .zf-slide-air .zf-home-hero-visual::before {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(7, 14, 18, .66) 0%,
+      rgba(7, 14, 18, .52) 20%,
+      rgba(7, 14, 18, .22) 34%,
+      rgba(7, 14, 18, .04) 46%,
+      transparent 54%
+    ) !important;
+}
+
+html body[data-page="home"] main #landing .zf-home-hero-visual::after {
+  background:
+    linear-gradient(
+      180deg,
+      transparent 70%,
+      rgba(6, 12, 15, .10) 100%
+    ) !important;
+}
+
+html body[data-page="philosophy"] main #home .zf-philosophy-opening > figure > img {
+  filter: saturate(1.04) contrast(1.025) brightness(1.025) !important;
+}
+
+html body[data-page="philosophy"] main #home .zf-philosophy-opening > figure::after {
+  background:
+    linear-gradient(
+      90deg,
+      rgba(8, 13, 20, .70) 0%,
+      rgba(8, 13, 20, .54) 21%,
+      rgba(8, 13, 20, .20) 35%,
+      rgba(8, 13, 20, .03) 47%,
+      transparent 53%
+    ) !important;
+}
+
+@media (min-width: 1440px) {
+  html body[data-page="home"] main #landing > :is(
+    .zf-home-large-home,
+    .zf-home-nourish,
+    .zf-home-health-comfort,
+    .zf-home-narrative-bridge,
+    .zf-home-system-reveal,
+    .zf-home-capability-spectrum
+  ),
+  html body[data-page="philosophy"] main #home > :is(
+    .zf-philosophy-opening,
+    .zf-philosophy-bridge,
+    .zf-home-human,
+    .zf-home-senses,
+    #home-capabilities
+  ) {
+    width: calc(100vw - 72px) !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
 /* Health and comfort: one editorial scene with a restrained two-column reading rhythm. */
 html body main #landing > .zf-home-health-comfort {
   padding-top: 0;
@@ -862,6 +929,96 @@ html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-cl
 
   html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast article {
     padding: 22px;
+  }
+}
+
+/* zf-final-wide-clear-v27 — intentionally last in the cascade */
+html body[data-page="home"] main #landing .zf-home-hero-image {
+  filter: saturate(1.06) contrast(1.035) brightness(1.025) !important;
+}
+html body[data-page="home"] main #landing .zf-home-hero-visual::before,
+html body[data-page="home"] main #landing .zf-slide-air .zf-home-hero-visual::before {
+  background: linear-gradient(90deg, rgba(7,14,18,.66) 0%, rgba(7,14,18,.52) 20%, rgba(7,14,18,.22) 34%, rgba(7,14,18,.04) 46%, transparent 54%) !important;
+}
+html body[data-page="home"] main #landing .zf-home-hero-visual::after {
+  background: linear-gradient(180deg, transparent 70%, rgba(6,12,15,.10) 100%) !important;
+}
+html body[data-page="philosophy"] main #home .zf-philosophy-opening > figure > img {
+  filter: saturate(1.04) contrast(1.025) brightness(1.025) !important;
+}
+html body[data-page="philosophy"] main #home .zf-philosophy-opening > figure::after {
+  background: linear-gradient(90deg, rgba(8,13,20,.70) 0%, rgba(8,13,20,.54) 21%, rgba(8,13,20,.20) 35%, rgba(8,13,20,.03) 47%, transparent 53%) !important;
+}
+@media (min-width: 1440px) {
+  html body[data-page="home"] main #landing > :is(.zf-home-large-home,.zf-home-nourish,.zf-home-health-comfort,.zf-home-narrative-bridge,.zf-home-system-reveal,.zf-home-capability-spectrum),
+  html body[data-page="philosophy"] main #home > :is(.zf-philosophy-opening,.zf-philosophy-bridge,.zf-home-human,.zf-home-senses,#home-capabilities) {
+    width: calc(100vw - 72px) !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+  }
+}
+
+/* Final cascade: 2026-07-27 PC stage continuity and clear-right imagery. */
+html body[data-page="home"] main #landing .zf-home-hero-image {
+  filter: saturate(1.06) contrast(1.035) brightness(1.025) !important;
+}
+
+html body[data-page="home"] main #landing .zf-home-hero-visual::before,
+html body[data-page="home"] main #landing .zf-slide-air .zf-home-hero-visual::before {
+  background: linear-gradient(
+    90deg,
+    rgba(7, 14, 18, .66) 0%,
+    rgba(7, 14, 18, .52) 20%,
+    rgba(7, 14, 18, .22) 34%,
+    rgba(7, 14, 18, .04) 46%,
+    transparent 54%
+  ) !important;
+}
+
+html body[data-page="home"] main #landing .zf-home-hero-visual::after {
+  background: linear-gradient(
+    180deg,
+    transparent 70%,
+    rgba(6, 12, 15, .10) 100%
+  ) !important;
+}
+
+html body[data-page="philosophy"] main #home .zf-philosophy-opening > figure > img {
+  filter: saturate(1.04) contrast(1.025) brightness(1.025) !important;
+}
+
+html body[data-page="philosophy"] main #home .zf-philosophy-opening > figure::after {
+  background: linear-gradient(
+    90deg,
+    rgba(8, 13, 20, .70) 0%,
+    rgba(8, 13, 20, .54) 21%,
+    rgba(8, 13, 20, .20) 35%,
+    rgba(8, 13, 20, .03) 47%,
+    transparent 53%
+  ) !important;
+}
+
+@media (min-width: 1440px) {
+  html body[data-page="home"] main #landing > :is(
+    .zf-home-large-home,
+    .zf-home-nourish,
+    .zf-home-health-comfort,
+    .zf-home-narrative-bridge,
+    .zf-home-system-reveal,
+    .zf-home-capability-spectrum
+  ),
+  html body[data-page="philosophy"] main #home > :is(
+    .zf-philosophy-opening,
+    .zf-philosophy-bridge,
+    .zf-home-human,
+    .zf-home-senses,
+    #home-capabilities
+  ) {
+    width: calc(100vw - 72px) !important;
+    max-width: none !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
   }
 }
 
