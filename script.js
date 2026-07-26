@@ -1620,9 +1620,9 @@ const renderWaterScenePhones = () => {
 };
 
 const pageRoutes = {
-  home: ["landing", "home"],
-  philosophy: ["home", "dimensions"],
-  dimensions: ["home", "dimensions"],
+  home: ["landing", "home-large-home", "home-nourishes", "home"],
+  philosophy: ["home", "dimensions", "home-capabilities", "philosophy-cases"],
+  dimensions: ["home", "dimensions", "home-capabilities", "philosophy-cases"],
   climate: ["climate", "environment-problem", "environment-logic", "air-feeling-bridge", "systems"],
   "water-supply-drainage": ["water-problem", "water-logic", "water-supply-drainage"],
   systems: ["climate", "environment-problem", "environment-logic", "systems"],
@@ -1661,6 +1661,10 @@ const pageRoutes = {
 
 const routeAliases = {
   landing: "home",
+  "home-large-home": "home",
+  "home-nourishes": "home",
+  "home-health-comfort": "home",
+  "home-capabilities": "philosophy",
   "philosophy-life": "philosophy",
   air: "systems",
   water: "water-supply-drainage",
@@ -1839,7 +1843,7 @@ const initPageRouter = () => {
         : routeScrollTargets[page] || activeIds.values().next().value;
     const target = document.getElementById(targetId);
     if (target) {
-      const alignPageTop = isPageRoute && page === "home";
+      const alignPageTop = page === "home" && (raw === "home" || raw === "landing");
       const runScroll = () => scrollToRouteTarget(target, { alignPageTop });
       requestAnimationFrame(() =>
         requestAnimationFrame(() => {
@@ -5787,7 +5791,63 @@ const applyPageCohesionInlineLock = () => {
   }
 };
 
+const positionPhilosophyCases = () => {
+  const dimensionsSection = document.querySelector("#dimensions");
+  const capabilitiesSection = document.querySelector("#home-capabilities");
+  const casesSection = document.querySelector("#philosophy-cases");
+  if (!dimensionsSection || !capabilitiesSection || !casesSection) return;
+  dimensionsSection.insertAdjacentElement("afterend", capabilitiesSection);
+  capabilitiesSection.insertAdjacentElement("afterend", casesSection);
+};
+
+const applyHeadingHierarchyLock = () => {
+  const page = document.body.dataset.page;
+  const lock = (selector, size, lineHeight = "1.14") => {
+    document.querySelectorAll(selector).forEach((node) => {
+      node.style.setProperty("font-size", size, "important");
+      node.style.setProperty("line-height", lineHeight, "important");
+    });
+  };
+
+  if (page === "home") {
+    lock("#landing .zf-home-hero-copy h1", "clamp(40px, 3.9vw, 58px)", "1.1");
+    lock([
+      "#landing > .zf-home-large-home h2",
+      "#landing > .zf-home-nourish h2",
+      "#landing > .zf-home-health-comfort h2",
+      "#landing > .zf-home-narrative-bridge h2",
+      "#landing > .zf-home-proof-bridge h2",
+      "#landing > .zf-home-system-reveal h2",
+      "#landing > .zf-home-capabilities h2",
+      "#landing #home-capabilities h2"
+    ].join(","), "clamp(32px, 3vw, 40px)");
+  }
+
+  if (page === "philosophy") {
+    lock("#home h1", "clamp(42px, 4vw, 56px)", "1.1");
+    lock([
+      "#home h2",
+      "#dimensions > .section-heading h2",
+      "#home-capabilities h2",
+      "#philosophy-cases h2"
+    ].join(","), "clamp(30px, 3vw, 40px)", "1.16");
+    lock("#philosophy-cases h3", "clamp(26px, 2.5vw, 34px)", "1.18");
+  }
+
+  if (page === "systems") {
+    lock("#climate > .section-heading h2, #climate .climate-stage h2", "clamp(38px, 3.6vw, 48px)", "1.12");
+    lock("main > section:not(#climate) h1, main > section:not(#climate) h2", "clamp(30px, 2.9vw, 38px)", "1.16");
+  }
+
+  if (page === "delivery") {
+    lock("#fit .delivery-hero-copy h2", "clamp(40px, 3.8vw, 52px)", "1.12");
+    lock("#fit h2, main > section:not(#fit) h1, main > section:not(#fit) h2", "clamp(28px, 2.7vw, 36px)", "1.16");
+    lock("#fit .delivery-hero-copy h2", "clamp(40px, 3.8vw, 52px)", "1.12");
+  }
+};
+
 renderDimensions();
+positionPhilosophyCases();
 renderClimateCards();
 initClimateTopicToggles();
 renderWaterSupply();
@@ -5811,6 +5871,7 @@ lockWaterRouteLayout();
 initAccessForms();
 applyGlobalTypographyLock();
 applyPageCohesionInlineLock();
+applyHeadingHierarchyLock();
 
 $$("[data-temp], [data-rh], [data-dew-input]").forEach((input) => input.addEventListener("input", updateDewTool));
 let typographyLockTimer = null;
@@ -5826,6 +5887,7 @@ const scheduleTypographyLock = (delay = 60) => {
     requestAnimationFrame(() => {
       applyGlobalTypographyLock();
       applyPageCohesionInlineLock();
+      applyHeadingHierarchyLock();
     });
   }, delay);
 };

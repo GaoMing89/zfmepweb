@@ -14,6 +14,137 @@ html body main #landing .zf-home-capability-spectrum {
   box-shadow: 0 30px 90px rgba(21, 37, 62, 0.09);
 }
 
+/* Large-home narrative: calm thesis first, then a deliberately disordered field of lived problems. */
+html body main .zf-home-large-home {
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: auto clamp(650px, 68vw, 820px);
+  width: min(1704px, calc(100vw - 72px));
+  max-width: none;
+  min-height: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #17252a;
+}
+
+html body main .zf-home-large-home-copy {
+  grid-area: 1 / 1;
+  align-self: auto;
+  width: min(1500px, calc(100% - 160px));
+  margin: 0 auto;
+  padding: clamp(74px, 7vw, 118px) 0 clamp(48px, 5vw, 78px);
+}
+
+html body main .zf-home-large-home-copy .zf-home-story-kicker {
+  color: #15979b;
+}
+
+html body main .zf-home-large-home-copy h2 {
+  max-width: 980px;
+  color: #17252a;
+  font-size: clamp(50px, 5vw, 82px);
+  line-height: 1.08;
+}
+
+html body main .zf-home-large-home-copy > p:last-child {
+  max-width: 920px;
+  color: rgba(23, 37, 42, .67);
+  font-size: clamp(16px, 1.3vw, 20px);
+}
+
+html body main .zf-home-large-home-visual {
+  position: relative;
+  z-index: 0;
+  grid-area: 2 / 1;
+  inset: auto;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #151817;
+}
+
+html body main .zf-home-large-home-visual::after {
+  background:
+    linear-gradient(90deg, rgba(13,16,15,.5), rgba(13,16,15,.08) 42%, rgba(13,16,15,.28)),
+    linear-gradient(0deg, rgba(8,10,9,.58), transparent 48%);
+}
+
+html body main .zf-home-large-home-pains {
+  position: relative;
+  z-index: 2;
+  grid-area: 2 / 1;
+  display: block;
+  padding: 0;
+  pointer-events: none;
+}
+
+html body main .zf-home-large-home-pains span {
+  position: absolute;
+  padding: 11px 15px;
+  border-radius: 8px;
+  box-shadow: 0 12px 30px rgba(0,0,0,.22);
+}
+
+html body main .zf-home-large-home-pains span:nth-child(1)  { left: 7%;  top: 69%; transform: rotate(-4deg); }
+html body main .zf-home-large-home-pains span:nth-child(2)  { left: 56%; top: 18%; transform: rotate(3deg); }
+html body main .zf-home-large-home-pains span:nth-child(3)  { left: 68%; top: 42%; transform: rotate(-2deg); }
+html body main .zf-home-large-home-pains span:nth-child(4)  { right: 5%; top: 72%; transform: rotate(4deg); }
+html body main .zf-home-large-home-pains span:nth-child(5)  { left: 36%; top: 48%; transform: rotate(-3deg); }
+html body main .zf-home-large-home-pains span:nth-child(6)  { left: 15%; top: 28%; transform: rotate(5deg); }
+html body main .zf-home-large-home-pains span:nth-child(7)  { left: 48%; top: 75%; transform: rotate(-2deg); }
+html body main .zf-home-large-home-pains span:nth-child(8)  { right: 8%; top: 13%; transform: rotate(3deg); }
+html body main .zf-home-large-home-pains span:nth-child(9)  { left: 75%; top: 58%; transform: rotate(-5deg); }
+html body main .zf-home-large-home-pains span:nth-child(10) { left: 24%; top: 12%; transform: rotate(-2deg); }
+html body main .zf-home-large-home-pains span:nth-child(11) { left: 42%; top: 30%; transform: rotate(4deg); }
+html body main .zf-home-large-home-pains span:nth-child(12) { left: 10%; top: 50%; transform: rotate(2deg); }
+html body main .zf-home-large-home-pains span:nth-child(13) { left: 60%; top: 88%; transform: rotate(-3deg); }
+html body main .zf-home-large-home-pains span:nth-child(14) { right: 18%; top: 31%; transform: rotate(3deg); }
+
+html body main .zf-home-large-home-closing {
+  z-index: 3;
+  grid-area: 2 / 1;
+  align-self: end;
+  justify-self: center;
+  position: relative;
+  right: auto;
+  bottom: auto;
+  margin: 0 24px 28px;
+  padding: 12px 20px;
+  border-radius: 999px;
+  background: rgba(13,16,15,.72);
+  backdrop-filter: blur(14px);
+}
+
+@media (max-width: 980px) {
+  html body main .zf-home-large-home {
+    grid-template-rows: auto 760px;
+    width: calc(100vw - 36px);
+  }
+  html body main .zf-home-large-home-copy {
+    width: calc(100% - 64px);
+    padding-block: 64px 42px;
+  }
+}
+
+@media (max-width: 640px) {
+  html body main .zf-home-large-home {
+    grid-template-rows: auto 760px;
+    width: calc(100vw - 20px);
+  }
+  html body main .zf-home-large-home-copy {
+    width: calc(100% - 40px);
+    padding-block: 52px 34px;
+  }
+  html body main .zf-home-large-home-copy h2 {
+    font-size: clamp(36px, 10vw, 46px);
+  }
+  html body main .zf-home-large-home-pains span {
+    font-size: 11px;
+    max-width: 44%;
+  }
+}
+
 html body main #landing .zf-home-capability-head {
   display: grid;
   grid-template-columns: minmax(0, 0.9fr) minmax(420px, 0.72fr);
@@ -435,6 +566,669 @@ html body main #landing .zf-home-system-reveal {
   }
 }
 
+/* Health and comfort: one editorial scene with a restrained two-column reading rhythm. */
+html body main #landing > .zf-home-health-comfort {
+  padding-top: 0;
+}
+
+html body main #landing > .zf-home-health-comfort > header h2 {
+  font-size: clamp(40px, 4vw, 62px);
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene {
+  position: relative;
+  height: clamp(420px, 43vw, 610px);
+  margin: clamp(52px, 5.5vw, 82px) 0 0;
+  overflow: hidden;
+  border-radius: 28px;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene::after {
+  position: absolute;
+  inset: 0;
+  background:
+    linear-gradient(90deg, rgba(11, 20, 18, .62) 0%, rgba(11, 20, 18, .14) 46%, transparent 76%),
+    linear-gradient(0deg, rgba(11, 20, 18, .58) 0%, transparent 46%);
+  content: "";
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene figcaption {
+  position: absolute;
+  z-index: 1;
+  right: clamp(30px, 5vw, 72px);
+  bottom: clamp(28px, 4.5vw, 64px);
+  left: clamp(30px, 5vw, 72px);
+  display: grid;
+  width: min(620px, 58%);
+  gap: 14px;
+  color: #fff;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene figcaption span {
+  color: #8ce2d6;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .16em;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene figcaption strong {
+  font-size: clamp(25px, 2.5vw, 40px);
+  line-height: 1.35;
+  letter-spacing: -.025em;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid {
+  gap: 0;
+  margin-top: 0;
+  border-bottom: 1px solid rgba(23, 40, 36, .15);
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article,
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid .is-health,
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid .is-comfort {
+  min-height: 0;
+  padding: clamp(40px, 4.2vw, 66px) clamp(26px, 4.2vw, 66px);
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  color: #173d38;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article + article {
+  border-left: 1px solid rgba(23, 40, 36, .15);
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article::after {
+  display: none;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid h3 {
+  margin: 18px 0 16px;
+  font-size: clamp(28px, 2.6vw, 40px);
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid p {
+  font-size: clamp(14px, 1vw, 17px);
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid ul {
+  margin-top: 26px;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-conclusion {
+  width: min(920px, 88%);
+  font-size: clamp(20px, 2vw, 30px);
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-transition {
+  width: 100%;
+  aspect-ratio: 2.05 / 1;
+  margin: clamp(48px, 5vw, 78px) 0 0;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #c5b7a5;
+  box-shadow: 0 28px 76px rgba(28, 39, 37, .12);
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-transition img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
+@media (max-width: 760px) {
+  html body main #landing > .zf-home-health-comfort > header h2 {
+    font-size: clamp(34px, 9vw, 40px);
+  }
+
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene {
+    height: 520px;
+    margin-top: 34px;
+    border-radius: 22px;
+  }
+
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene img {
+    object-position: 58% center;
+  }
+
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene figcaption {
+    right: 24px;
+    bottom: 28px;
+    left: 24px;
+    width: auto;
+  }
+
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene figcaption strong {
+    font-size: 24px;
+  }
+
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid {
+    grid-template-columns: 1fr;
+  }
+
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article,
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid .is-health,
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid .is-comfort {
+    padding: 34px 4px;
+  }
+
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article + article {
+    border-top: 1px solid rgba(23, 40, 36, .15);
+    border-left: 0;
+  }
+}
+
+/* Homepage relationship statement: one cinematic scene, not a card pasted into a colour block. */
+html body[data-page="home"] main #landing > .zf-home-nourish {
+  position: relative;
+  display: flex;
+  min-height: clamp(760px, 65vw, 940px);
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(56px, 6vw, 92px);
+  background: #17201f;
+  isolation: isolate;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  height: auto;
+  margin: 0;
+  border-radius: inherit;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media::after {
+  background:
+    linear-gradient(90deg, rgba(10, 18, 17, .94) 0%, rgba(10, 18, 17, .78) 38%, rgba(10, 18, 17, .22) 70%, rgba(10, 18, 17, .08) 100%),
+    linear-gradient(0deg, rgba(9, 16, 15, .90) 0%, transparent 48%);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media img {
+  object-position: center 48%;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media figcaption {
+  display: none;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-intro {
+  width: min(680px, 54%);
+  margin: 0 0 auto;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish h2 {
+  font-size: clamp(40px, 4vw, 64px);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-intro > p:last-child {
+  margin-top: 24px;
+  color: rgba(255, 255, 255, .76);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast {
+  width: min(920px, 76%);
+  gap: 1px;
+  margin-top: clamp(58px, 8vw, 120px);
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .22);
+  border-radius: 20px;
+  background: rgba(255, 255, 255, .18);
+  backdrop-filter: blur(18px);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast article {
+  min-height: 0;
+  padding: clamp(24px, 2.4vw, 38px);
+  border: 0;
+  border-radius: 0;
+  background: rgba(13, 22, 21, .72);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast .is-old {
+  background: rgba(13, 22, 21, .78);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast .is-right {
+  background: rgba(19, 50, 45, .76);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish article strong {
+  margin-top: 14px;
+  font-size: clamp(25px, 2vw, 34px);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish article ul {
+  gap: 9px;
+  margin-top: 18px;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish article li {
+  padding-top: 9px;
+  font-size: clamp(13px, .95vw, 15px);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-closing {
+  width: min(920px, 76%);
+  margin: 24px 0 0;
+  color: rgba(255, 255, 255, .92);
+  font-size: clamp(16px, 1.25vw, 20px);
+}
+
+@media (max-width: 760px) {
+  html body[data-page="home"] main #landing > .zf-home-nourish {
+    min-height: 940px;
+    padding: 42px 24px 34px;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media {
+    height: auto;
+    border-radius: inherit;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media::after {
+    background:
+      linear-gradient(180deg, rgba(9, 17, 16, .76) 0%, rgba(9, 17, 16, .34) 36%, rgba(9, 17, 16, .88) 66%, rgba(9, 17, 16, .96) 100%);
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media img {
+    object-position: 58% center;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-intro,
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast,
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-closing {
+    width: 100%;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-nourish h2 {
+    font-size: clamp(34px, 9vw, 40px);
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast {
+    grid-template-columns: 1fr;
+    margin-top: 42px;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast article {
+    padding: 22px;
+  }
+}
+
+/* Final health/comfort layout: full editorial image, no coloured image cards. */
+html body main #landing > .zf-home-health-comfort { padding-top: 0; }
+html body main #landing > .zf-home-health-comfort > header h2 { font-size: clamp(40px, 4vw, 62px); }
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene {
+  position: relative;
+  height: clamp(420px, 43vw, 610px);
+  margin: clamp(52px, 5.5vw, 82px) 0 0;
+  overflow: hidden;
+  border-radius: 28px;
+}
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(11,20,18,.62), rgba(11,20,18,.14) 46%, transparent 76%), linear-gradient(0deg, rgba(11,20,18,.58), transparent 46%);
+  content: "";
+}
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene figcaption {
+  position: absolute;
+  z-index: 1;
+  right: clamp(30px, 5vw, 72px);
+  bottom: clamp(28px, 4.5vw, 64px);
+  left: clamp(30px, 5vw, 72px);
+  display: grid;
+  width: min(620px, 58%);
+  gap: 14px;
+  color: #fff;
+}
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene figcaption span {
+  color: #8ce2d6;
+  font-size: 11px;
+  font-weight: 750;
+  letter-spacing: .16em;
+}
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene figcaption strong {
+  font-size: clamp(25px, 2.5vw, 40px);
+  line-height: 1.35;
+  letter-spacing: -.025em;
+}
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid {
+  gap: 0;
+  margin-top: 0;
+  border-bottom: 1px solid rgba(23,40,36,.15);
+}
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article,
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid .is-health,
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid .is-comfort {
+  min-height: 0;
+  padding: clamp(40px, 4.2vw, 66px) clamp(26px, 4.2vw, 66px);
+  overflow: visible;
+  border-radius: 0;
+  background: transparent;
+  color: #173d38;
+}
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article + article {
+  border-left: 1px solid rgba(23,40,36,.15);
+}
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article::after { display: none; }
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid h3 {
+  margin: 18px 0 16px;
+  font-size: clamp(28px, 2.6vw, 40px);
+}
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid p { font-size: clamp(14px, 1vw, 17px); }
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid ul { margin-top: 26px; }
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-conclusion {
+  width: min(920px, 88%);
+  font-size: clamp(20px, 2vw, 30px);
+}
+@media (max-width: 760px) {
+  html body main #landing > .zf-home-health-comfort > header h2 { font-size: clamp(34px, 9vw, 40px); }
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene {
+    height: 520px;
+    margin-top: 34px;
+    border-radius: 22px;
+  }
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene img { object-position: 58% center; }
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene figcaption {
+    right: 24px;
+    bottom: 28px;
+    left: 24px;
+    width: auto;
+  }
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-scene figcaption strong { font-size: 24px; }
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid { grid-template-columns: 1fr; }
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article,
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid .is-health,
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid .is-comfort { padding: 34px 4px; }
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article + article {
+    border-top: 1px solid rgba(23,40,36,.15);
+    border-left: 0;
+  }
+
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-transition {
+    aspect-ratio: auto;
+    height: 430px;
+    margin-top: 34px;
+    border-radius: 22px;
+  }
+
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-transition img {
+    object-position: 58% center;
+  }
+}
+
+/* Keep homepage proof flow separate from the philosophy page's human-experience chapter. */
+html body[data-page="home"] main #home > .zf-philosophy-bridge {
+  display: none !important;
+}
+
+html body[data-page="home"] main #home > .zf-home-evidence {
+  display: none !important;
+}
+
+html body[data-page="home"] main #landing > .zf-home-proof-bridge {
+  margin-top: clamp(72px, 7vw, 112px);
+}
+
+html body[data-page="home"] main #landing > .zf-home-proof-bridge .zf-home-definition-closing {
+  position: relative;
+  grid-column: 1 / -1;
+  width: 100%;
+  aspect-ratio: 2 / 1;
+  margin: clamp(52px, 5vw, 80px) 0 0;
+  overflow: hidden;
+  border-radius: 30px;
+  background: #d9d4ca;
+  box-shadow: 0 28px 74px rgba(28, 39, 37, .12);
+}
+
+html body[data-page="home"] main #landing > .zf-home-proof-bridge .zf-home-definition-closing::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 48%, rgba(10, 23, 21, .72) 100%);
+  pointer-events: none;
+}
+
+html body[data-page="home"] main #landing > .zf-home-proof-bridge .zf-home-definition-closing img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+html body[data-page="home"] main #landing > .zf-home-proof-bridge .zf-home-definition-closing figcaption {
+  position: absolute;
+  z-index: 1;
+  right: clamp(30px, 4vw, 64px);
+  bottom: clamp(28px, 3.5vw, 54px);
+  left: clamp(30px, 4vw, 64px);
+  max-width: 820px;
+  color: #fff;
+}
+
+html body[data-page="home"] main #landing > .zf-home-proof-bridge .zf-home-definition-closing figcaption small {
+  display: block;
+  margin-bottom: 12px;
+  color: #9ce1d6;
+  font: 680 11px/1.3 "SF Pro Display", "PingFang SC", sans-serif;
+  letter-spacing: .16em;
+}
+
+html body[data-page="home"] main #landing > .zf-home-proof-bridge .zf-home-definition-closing figcaption strong {
+  display: block;
+  font: 540 clamp(22px, 2.2vw, 34px)/1.45 "SF Pro Display", "PingFang SC", "Noto Sans SC", sans-serif;
+  letter-spacing: -.02em;
+}
+
+@media (max-width: 760px) {
+  html body[data-page="home"] main #landing > .zf-home-proof-bridge .zf-home-definition-closing {
+    aspect-ratio: auto;
+    height: 520px;
+    margin-top: 36px;
+    border-radius: 22px;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-proof-bridge .zf-home-definition-closing img {
+    object-position: 48% center;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-proof-bridge .zf-home-definition-closing figcaption {
+    right: 24px;
+    bottom: 28px;
+    left: 24px;
+  }
+}
+
+/* Homepage judgment standard: health first, comfort follows, systems make both real. */
+html body main #landing > .zf-home-health-comfort {
+  width: min(1500px, calc(100% - 72px));
+  margin: clamp(96px, 9vw, 150px) auto;
+  padding: clamp(26px, 3vw, 46px) 0 0;
+  color: #172824;
+}
+
+html body main #landing > .zf-home-health-comfort > header {
+  display: grid;
+  grid-template-columns: minmax(0, 1.15fr) minmax(320px, .85fr);
+  gap: clamp(36px, 6vw, 104px);
+  align-items: end;
+}
+
+html body main #landing > .zf-home-health-comfort > header .zf-home-story-kicker {
+  grid-column: 1 / -1;
+  margin: 0 0 -12px;
+  color: #238c83;
+}
+
+html body main #landing > .zf-home-health-comfort > header h2 {
+  margin: 0;
+  font-size: clamp(42px, 4.4vw, 70px);
+  line-height: 1.1;
+  letter-spacing: -.045em;
+}
+
+html body main #landing > .zf-home-health-comfort > header > p:last-child {
+  margin: 0 0 8px;
+  color: rgba(23, 40, 36, .66);
+  font-size: clamp(16px, 1.25vw, 20px);
+  line-height: 1.9;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: clamp(52px, 6vw, 88px);
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article {
+  position: relative;
+  min-height: 430px;
+  padding: clamp(38px, 4.5vw, 72px);
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid figure {
+  position: relative;
+  z-index: 1;
+  height: clamp(190px, 20vw, 270px);
+  margin: 0 0 34px;
+  overflow: hidden;
+  border-radius: 19px;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid figure::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 58%, rgba(8, 18, 16, .16));
+  content: "";
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid figure img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article::after {
+  position: absolute;
+  right: -40px;
+  bottom: -80px;
+  width: 280px;
+  height: 280px;
+  border: 1px solid currentColor;
+  border-radius: 50%;
+  opacity: .10;
+  content: "";
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid .is-health {
+  background: #d9eee7;
+  color: #17453f;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid .is-comfort {
+  background: #efe5d1;
+  color: #58452d;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article > span {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid h3 {
+  width: min(500px, 92%);
+  margin: 28px 0 22px;
+  font-size: clamp(32px, 3.4vw, 54px);
+  line-height: 1.12;
+  letter-spacing: -.04em;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid p {
+  width: min(560px, 92%);
+  margin: 0;
+  color: currentColor;
+  font-size: clamp(15px, 1.15vw, 18px);
+  line-height: 1.85;
+  opacity: .72;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid ul {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 38px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid li {
+  padding: 9px 13px;
+  border: 1px solid currentColor;
+  border-radius: 999px;
+  font-size: 13px;
+  opacity: .72;
+}
+
+html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-conclusion {
+  width: min(1040px, 90%);
+  margin: clamp(46px, 5vw, 76px) auto 0;
+  text-align: center;
+  color: #195b54;
+  font-size: clamp(22px, 2.4vw, 38px);
+  font-weight: 650;
+  line-height: 1.45;
+  letter-spacing: -.025em;
+}
+
+@media (max-width: 760px) {
+  html body main #landing > .zf-home-health-comfort {
+    width: calc(100% - 28px);
+    margin: 66px auto;
+  }
+  html body main #landing > .zf-home-health-comfort > header,
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid {
+    grid-template-columns: 1fr;
+  }
+  html body main #landing > .zf-home-health-comfort > header {
+    gap: 22px;
+  }
+  html body main #landing > .zf-home-health-comfort > header h2 {
+    font-size: clamp(38px, 11vw, 52px);
+  }
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-grid article {
+    min-height: 0;
+    padding: 34px 26px;
+  }
+  html body main #landing > .zf-home-health-comfort .zf-home-health-comfort-conclusion {
+    width: 100%;
+    text-align: left;
+  }
+}
+
 /* Large-home complexity: lived-space scale without fabricating MEP topology. */
 html body main .zf-home-large-home {
   position: relative;
@@ -622,16 +1416,16 @@ html body main #landing .zf-home-system-reveal-media img {
 html body main #landing .zf-home-system-reveal-media img {
   object-fit: cover;
   object-position: center;
-  filter: saturate(1.08) contrast(1.03);
-  transform: scale(1.005);
+  filter: saturate(1.04) contrast(1.02);
+  transform: none;
 }
 
 html body main #landing .zf-home-system-reveal-shade {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(5, 11, 18, 0.93) 0%, rgba(5, 11, 18, 0.75) 31%, rgba(5, 11, 18, 0.14) 65%, rgba(5, 11, 18, 0.08) 100%),
-    linear-gradient(180deg, rgba(5, 11, 18, 0.12), transparent 48%, rgba(5, 11, 18, 0.78));
+    linear-gradient(90deg, rgba(5, 11, 18, .88) 0%, rgba(5, 11, 18, .72) 28%, rgba(5, 11, 18, .16) 47%, transparent 66%),
+    linear-gradient(180deg, rgba(5, 11, 18, .04), transparent 48%, rgba(5, 11, 18, .68));
   pointer-events: none;
 }
 
@@ -654,7 +1448,7 @@ html body main .zf-home-story-kicker {
 html body main #landing .zf-home-system-reveal-copy h2 {
   margin: 0;
   color: #fff;
-  font: 560 clamp(45px, 5vw, 82px)/1.02 "SF Pro Display", "PingFang SC", sans-serif;
+  font: 560 clamp(40px, 4.2vw, 68px)/1.08 "SF Pro Display", "PingFang SC", sans-serif;
   letter-spacing: -0.065em;
 }
 
@@ -662,7 +1456,7 @@ html body main #landing .zf-home-system-reveal-copy > span {
   display: block;
   max-width: 540px;
   margin-top: 28px;
-  color: rgba(255, 255, 255, 0.72);
+  color: rgba(255, 255, 255, 0.82);
   font: 400 clamp(15px, 1.1vw, 18px)/1.8 "SF Pro Text", "PingFang SC", sans-serif;
 }
 
@@ -1459,5 +2253,508 @@ html body[data-page="home"] main #home.zf-home-story .zf-home-consult > a {
   html body[data-page="philosophy"] main .zf-philosophy-bridge > div:last-child {
     gap: 22px;
     padding: 0;
+  }
+}
+
+/* Cascade lock for the large-home narrative reframe. */
+html body main section.zf-home-large-home {
+  grid-template-columns: 1fr;
+  grid-template-rows: auto clamp(650px, 68vw, 820px);
+  min-height: 0;
+  overflow: visible;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  color: #17252a;
+}
+html body main section.zf-home-large-home .zf-home-large-home-copy {
+  grid-area: 1 / 1;
+  align-self: auto;
+  width: min(1500px, calc(100% - 160px));
+  margin: 0 auto;
+  padding: clamp(74px, 7vw, 118px) 0 clamp(48px, 5vw, 78px);
+}
+html body main section.zf-home-large-home .zf-home-large-home-copy h2 { color: #17252a; font-size: clamp(42px, 4.1vw, 68px); line-height: 1.1; }
+html body main section.zf-home-large-home .zf-home-large-home-copy > p:last-child { color: rgba(23,37,42,.67); }
+html body main section.zf-home-large-home .zf-home-large-home-visual {
+  position: relative;
+  z-index: 0;
+  grid-area: 2 / 1;
+  inset: auto;
+  border-radius: 30px;
+}
+html body main section.zf-home-large-home .zf-home-large-home-pains {
+  position: relative;
+  z-index: 2;
+  grid-area: 2 / 1;
+  display: block;
+  padding: 0;
+}
+html body main section.zf-home-large-home .zf-home-large-home-closing {
+  position: relative;
+  z-index: 3;
+  grid-area: 2 / 1;
+  align-self: end;
+  justify-self: center;
+  right: auto;
+  bottom: auto;
+}
+@media (max-width: 980px) {
+  html body main section.zf-home-large-home { grid-template-rows: auto 760px; }
+  html body main section.zf-home-large-home .zf-home-large-home-copy { width: calc(100% - 64px); }
+}
+@media (max-width: 640px) {
+  html body main section.zf-home-large-home .zf-home-large-home-copy { width: calc(100% - 40px); }
+  html body main section.zf-home-large-home .zf-home-large-home-copy h2 { font-size: clamp(36px, 10vw, 46px); }
+}
+
+/* Homepage-first problem field: thesis above, animated pain points contained inside the panorama. */
+html body:not([data-page="home"]) main #landing > .zf-home-large-home {
+  display: none !important;
+}
+
+html body[data-page="home"] main #landing > .zf-home-large-home {
+  margin-top: clamp(34px, 4vw, 64px);
+}
+
+html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-copy {
+  text-align: left;
+}
+
+/* Desktop editorial split: thesis on the left, explanation on the right. */
+@media (min-width: 981px) {
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-copy {
+    display: grid;
+    grid-template-columns: minmax(0, .92fr) minmax(360px, .72fr);
+    grid-template-rows: auto auto;
+    column-gap: clamp(90px, 10vw, 190px);
+    align-items: end;
+    padding-top: clamp(70px, 6.4vw, 104px);
+    padding-bottom: clamp(52px, 4.6vw, 74px);
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-story-kicker {
+    grid-column: 1;
+    grid-row: 1;
+    margin: 0 0 18px;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-copy h2 {
+    grid-column: 1;
+    grid-row: 2;
+    max-width: 680px;
+    margin: 0;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-copy > p:last-child {
+    grid-column: 2;
+    grid-row: 1 / span 2;
+    align-self: end;
+    max-width: 570px;
+    margin: 0 0 4px;
+    font-size: clamp(18px, 1.2vw, 22px);
+    line-height: 1.85;
+  }
+}
+
+html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains {
+  align-self: stretch;
+  justify-self: stretch;
+  inset: 0;
+  width: auto;
+  height: auto;
+  overflow: hidden;
+  border-radius: 30px;
+}
+
+html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-visual::after {
+  background:
+    linear-gradient(180deg, rgba(8, 12, 12, .04), rgba(8, 12, 12, .20)),
+    linear-gradient(90deg, rgba(8, 12, 12, .08), rgba(8, 12, 12, .02) 58%, rgba(8, 12, 12, .10));
+}
+
+html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span {
+  max-width: 220px;
+  padding: 8px 11px;
+  border-color: rgba(255, 255, 255, .28);
+  background: rgba(12, 16, 15, .76);
+  color: rgba(255, 255, 255, .92);
+  box-shadow: 0 8px 22px rgba(0, 0, 0, .22);
+  backdrop-filter: blur(7px);
+  font-size: clamp(10px, .74vw, 12px);
+  line-height: 1.25;
+  animation: zfLargeHomePainFloat 6.5s cubic-bezier(.45, 0, .55, 1) infinite alternate;
+  will-change: transform;
+}
+
+html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(2n) { animation-name: zfLargeHomePainFloatReverse; animation-duration: 8.2s; animation-delay: -4s; }
+html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(3n) { animation-duration: 9.4s; animation-delay: -7s; }
+html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(5n) { animation-name: zfLargeHomePainFloatWide; animation-duration: 10.5s; animation-delay: -9s; }
+
+html body main .zf-home-large-home-pains span:nth-child(15) { left: 28%; top: 62%; }
+html body main .zf-home-large-home-pains span:nth-child(16) { left: 81%; top: 82%; }
+html body main .zf-home-large-home-pains span:nth-child(17) { left: 4%; top: 39%; }
+html body main .zf-home-large-home-pains span:nth-child(18) { left: 51%; top: 8%; }
+html body main .zf-home-large-home-pains span:nth-child(19) { left: 67%; top: 66%; }
+html body main .zf-home-large-home-pains span:nth-child(20) { left: 18%; top: 82%; }
+html body main .zf-home-large-home-pains span:nth-child(21) { left: 45%; top: 42%; }
+html body main .zf-home-large-home-pains span:nth-child(22) { left: 72%; top: 25%; }
+html body main .zf-home-large-home-pains span:nth-child(23) { left: 31%; top: 23%; }
+html body main .zf-home-large-home-pains span:nth-child(24) { left: 86%; top: 49%; }
+html body main .zf-home-large-home-pains span:nth-child(25) { left: 54%; top: 57%; }
+html body main .zf-home-large-home-pains span:nth-child(26) { left: 8%; top: 91%; }
+
+@keyframes zfLargeHomePainFloat {
+  0%   { translate: -18px 12px; rotate: -5deg; scale: .94; }
+  32%  { translate: 22px -18px; rotate: 4deg; scale: 1.03; }
+  67%  { translate: -14px -28px; rotate: -3deg; scale: .98; }
+  100% { translate: 26px 18px; rotate: 6deg; scale: 1.05; }
+}
+
+@keyframes zfLargeHomePainFloatReverse {
+  0%   { translate: 20px -16px; rotate: 5deg; scale: 1.04; }
+  38%  { translate: -26px 20px; rotate: -6deg; scale: .95; }
+  72%  { translate: 14px 28px; rotate: 3deg; scale: 1.02; }
+  100% { translate: -20px -22px; rotate: -4deg; scale: .97; }
+}
+
+@keyframes zfLargeHomePainFloatWide {
+  0%   { translate: -32px -10px; rotate: -7deg; scale: .93; }
+  45%  { translate: 30px 24px; rotate: 6deg; scale: 1.06; }
+  100% { translate: -8px -34px; rotate: -2deg; scale: .98; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span {
+    animation: none;
+  }
+}
+
+@media (max-width: 640px) {
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span {
+    max-width: 38%;
+    padding: 7px 9px;
+    font-size: 10px;
+    animation-name: zfLargeHomePainFloatMobile !important;
+  }
+  html body main .zf-home-large-home-pains span:nth-child(3) { left: 58%; }
+  html body main .zf-home-large-home-pains span:nth-child(9),
+  html body main .zf-home-large-home-pains span:nth-child(16),
+  html body main .zf-home-large-home-pains span:nth-child(22),
+  html body main .zf-home-large-home-pains span:nth-child(24) { right: 4%; left: auto; }
+  html body main .zf-home-large-home-pains span:nth-child(13) { top: 82%; }
+html body main .zf-home-large-home-pains span:nth-child(26) { top: 86%; }
+}
+
+/* Keep the new restorative image connected to the following MEP explanation. */
+html body[data-page="home"] main #landing > .zf-home-health-comfort {
+  margin-bottom: 0;
+}
+
+html body[data-page="home"] main #landing > .zf-home-health-comfort + .zf-home-narrative-bridge {
+  margin-top: clamp(68px, 6.5vw, 104px);
+}
+
+@media (max-width: 760px) {
+  html body[data-page="home"] main #landing > .zf-home-health-comfort + .zf-home-narrative-bridge {
+    margin-top: 54px;
+  }
+}
+
+@keyframes zfLargeHomePainFloatMobile {
+  0%   { translate: -6px 5px; rotate: -3deg; scale: .97; }
+  45%  { translate: 8px -9px; rotate: 3deg; scale: 1.02; }
+  100% { translate: -5px 8px; rotate: -2deg; scale: .99; }
+}
+
+/* Homepage step two: correct the relationship between people and the home. */
+html body:not([data-page="home"]) main #landing > .zf-home-nourish {
+  display: none !important;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish {
+  width: min(1500px, calc(100% - 72px));
+  margin: clamp(84px, 9vw, 150px) auto;
+  padding: clamp(52px, 5vw, 78px);
+  border-radius: 34px;
+  background:
+    radial-gradient(circle at 86% 14%, rgba(119, 207, 193, .20), transparent 30%),
+    linear-gradient(135deg, #14201f 0%, #192826 56%, #213732 100%);
+  color: #f5f1e8;
+  overflow: hidden;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-intro {
+  width: min(880px, 72%);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-story-kicker {
+  margin: 0 0 22px;
+  color: #76d8ce;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish h2 {
+  margin: 0;
+  font-size: clamp(42px, 4.5vw, 72px);
+  line-height: 1.08;
+  letter-spacing: -.045em;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-intro > p:last-child {
+  width: min(720px, 100%);
+  margin: 32px 0 0;
+  color: rgba(245, 241, 232, .68);
+  font-size: clamp(16px, 1.25vw, 20px);
+  line-height: 1.9;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media {
+  position: relative;
+  height: clamp(320px, 34vw, 460px);
+  margin: clamp(42px, 4.5vw, 68px) 0 0;
+  overflow: hidden;
+  border-radius: 26px;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media::after {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(180deg, transparent 48%, rgba(8, 14, 13, .72));
+  content: "";
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media figcaption {
+  position: absolute;
+  z-index: 2;
+  right: clamp(24px, 4vw, 58px);
+  bottom: clamp(24px, 4vw, 54px);
+  left: clamp(24px, 4vw, 58px);
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 24px;
+  color: #fff;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media figcaption span {
+  color: #76d8ce;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .16em;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media figcaption strong {
+  width: min(600px, 70%);
+  font-size: clamp(18px, 1.75vw, 28px);
+  line-height: 1.5;
+  text-align: right;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  margin-top: clamp(54px, 6vw, 92px);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast article {
+  min-height: 300px;
+  padding: clamp(30px, 3.2vw, 52px);
+  border: 1px solid rgba(255, 255, 255, .11);
+  border-radius: 26px;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast .is-old {
+  background: rgba(255, 255, 255, .035);
+  color: rgba(245, 241, 232, .58);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast .is-right {
+  background: rgba(105, 207, 191, .12);
+  border-color: rgba(118, 216, 206, .32);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish article small {
+  color: #76d8ce;
+  font-size: 11px;
+  letter-spacing: .16em;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish article strong {
+  display: block;
+  margin-top: 24px;
+  font-size: clamp(30px, 3vw, 48px);
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish article ul {
+  display: grid;
+  gap: 14px;
+  margin: 28px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish article li {
+  padding-top: 14px;
+  border-top: 1px solid rgba(255, 255, 255, .10);
+  font-size: clamp(14px, 1.05vw, 17px);
+  line-height: 1.6;
+}
+
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-closing {
+  margin: 52px 0 0;
+  color: #f4b85f;
+  font-size: clamp(18px, 1.6vw, 25px);
+  font-weight: 650;
+}
+
+@media (max-width: 760px) {
+  html body[data-page="home"] main #landing > .zf-home-nourish {
+    width: calc(100% - 28px);
+    margin: 54px auto;
+    padding: 42px 24px;
+    border-radius: 24px;
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-intro {
+    width: 100%;
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish h2 {
+    font-size: clamp(34px, 9.4vw, 46px);
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media {
+    height: 330px;
+    border-radius: 20px;
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media figcaption {
+    display: grid;
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media figcaption strong {
+    width: 100%;
+    text-align: left;
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast {
+    grid-template-columns: 1fr;
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast article {
+    min-height: 0;
+  }
+}
+
+/* Final visual treatment: the photograph is the section, never an inset card. */
+html body[data-page="home"] main #landing > .zf-home-nourish {
+  position: relative;
+  display: flex;
+  min-height: clamp(760px, 65vw, 940px);
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: clamp(56px, 6vw, 92px);
+  background: #17201f;
+  isolation: isolate;
+}
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media {
+  position: absolute;
+  z-index: -2;
+  inset: 0;
+  height: auto;
+  margin: 0;
+  border-radius: inherit;
+}
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media::after {
+  background:
+    linear-gradient(90deg, rgba(10,18,17,.94) 0%, rgba(10,18,17,.78) 38%, rgba(10,18,17,.22) 70%, rgba(10,18,17,.08) 100%),
+    linear-gradient(0deg, rgba(9,16,15,.90) 0%, transparent 48%);
+}
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media img {
+  object-position: center 48%;
+}
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media figcaption {
+  display: none;
+}
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-intro {
+  width: min(680px, 54%);
+  margin: 0 0 auto;
+}
+html body[data-page="home"] main #landing > .zf-home-nourish h2 {
+  font-size: clamp(40px, 4vw, 64px);
+}
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-intro > p:last-child {
+  margin-top: 24px;
+  color: rgba(255,255,255,.76);
+}
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast {
+  width: min(920px, 76%);
+  gap: 1px;
+  margin-top: clamp(58px, 8vw, 120px);
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.22);
+  border-radius: 20px;
+  background: rgba(255,255,255,.18);
+  backdrop-filter: blur(18px);
+}
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast article,
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast .is-old,
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast .is-right {
+  min-height: 0;
+  padding: clamp(24px, 2.4vw, 38px);
+  border: 0;
+  border-radius: 0;
+  background: rgba(13,22,21,.76);
+}
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast .is-right {
+  background: rgba(19,50,45,.76);
+}
+html body[data-page="home"] main #landing > .zf-home-nourish article strong {
+  margin-top: 14px;
+  font-size: clamp(25px, 2vw, 34px);
+}
+html body[data-page="home"] main #landing > .zf-home-nourish article ul {
+  gap: 9px;
+  margin-top: 18px;
+}
+html body[data-page="home"] main #landing > .zf-home-nourish article li {
+  padding-top: 9px;
+  font-size: clamp(13px, .95vw, 15px);
+}
+html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-closing {
+  width: min(920px, 76%);
+  margin: 24px 0 0;
+  color: rgba(255,255,255,.92);
+  font-size: clamp(16px, 1.25vw, 20px);
+}
+@media (max-width: 760px) {
+  html body[data-page="home"] main #landing > .zf-home-nourish {
+    min-height: 940px;
+    padding: 42px 24px 34px;
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media {
+    height: auto;
+    border-radius: inherit;
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media::after {
+    background: linear-gradient(180deg, rgba(9,17,16,.76) 0%, rgba(9,17,16,.34) 36%, rgba(9,17,16,.88) 66%, rgba(9,17,16,.96) 100%);
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-media img {
+    object-position: 58% center;
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-intro,
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast,
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-closing {
+    width: 100%;
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish h2 {
+    font-size: clamp(34px, 9vw, 40px);
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast {
+    grid-template-columns: 1fr;
+    margin-top: 42px;
+  }
+  html body[data-page="home"] main #landing > .zf-home-nourish .zf-home-nourish-contrast article {
+    padding: 22px;
   }
 }
