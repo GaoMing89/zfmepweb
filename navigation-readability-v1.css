@@ -17,33 +17,59 @@
 
   html body .site-header .nav-mega-intro {
     border: 0 !important;
-    background:
+    color: #fff !important;
+    background-color: #182326 !important;
+    background-image:
       radial-gradient(circle at 86% 18%, rgba(79, 173, 166, 0.24), transparent 30%),
-      linear-gradient(148deg, #263437, #182326) !important;
-    background:
-      radial-gradient(circle at 86% 18%, color-mix(in srgb, var(--nav-accent) 38%, transparent), transparent 30%),
       linear-gradient(148deg, #263437, #182326) !important;
     box-shadow:
       0 18px 40px rgba(22, 29, 31, 0.2),
       inset 0 1px 0 rgba(255, 255, 255, 0.12) !important;
   }
 
-  /* The air guide must never inherit the warm menu surface on PC. Keep a
-     solid dark fallback underneath the gradient for older rendering paths. */
+  /* Every route gets a real, non-transparent base color. The earlier version
+     only did this for air; other routes depended on color-mix() gradients and
+     became warm-background/white-copy when a PC renderer dropped that layer. */
+  html body .site-header > .nav-mega[data-tone="philosophy"] .nav-mega-intro {
+    background-color: #241f1d !important;
+    background-image:
+      radial-gradient(circle at 86% 18%, rgba(170, 143, 121, 0.28), transparent 30%),
+      linear-gradient(148deg, #352d29, #201c1a) !important;
+  }
+
   html body .site-header > .nav-mega[data-tone="air"] .nav-mega-intro {
-    color: #fff !important;
     background-color: #18272a !important;
     background-image:
       radial-gradient(circle at 86% 18%, rgba(111, 174, 229, 0.28), transparent 30%),
       linear-gradient(148deg, #263b3e, #142326) !important;
   }
 
-  html body .site-header > .nav-mega[data-tone="air"] .nav-mega-intro > p {
-    color: #9adce0 !important;
+  html body .site-header > .nav-mega[data-tone="basement"] .nav-mega-intro {
+    background-color: #28211d !important;
+    background-image:
+      radial-gradient(circle at 86% 18%, rgba(192, 148, 108, 0.28), transparent 30%),
+      linear-gradient(148deg, #3a3029, #211c19) !important;
   }
 
-  html body .site-header > .nav-mega[data-tone="air"] .nav-mega-intro :is(h2, span) {
-    color: #fff !important;
+  html body .site-header > .nav-mega[data-tone="water"] .nav-mega-intro {
+    background-color: #17292d !important;
+    background-image:
+      radial-gradient(circle at 86% 18%, rgba(91, 168, 197, 0.30), transparent 30%),
+      linear-gradient(148deg, #284047, #14262a) !important;
+  }
+
+  html body .site-header > .nav-mega[data-tone="delivery"] .nav-mega-intro {
+    background-color: #20222f !important;
+    background-image:
+      radial-gradient(circle at 86% 18%, rgba(140, 143, 197, 0.30), transparent 30%),
+      linear-gradient(148deg, #303348, #1b1d29) !important;
+  }
+
+  html body .site-header > .nav-mega[data-tone="access"] .nav-mega-intro {
+    background-color: #2b211d !important;
+    background-image:
+      radial-gradient(circle at 86% 18%, rgba(207, 150, 117, 0.28), transparent 30%),
+      linear-gradient(148deg, #3d3029, #241d19) !important;
   }
 
   html body .site-header .nav-mega-intro > p {
