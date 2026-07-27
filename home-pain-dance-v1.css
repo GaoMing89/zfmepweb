@@ -1,0 +1,131 @@
+/* Homepage large-home pain field: stronger motion and staggered warning color. */
+
+@media (min-width: 981px) {
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span {
+    max-width: 260px;
+    padding: 10px 15px;
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, .32);
+    background: rgba(12, 16, 15, .80);
+    color: rgba(255, 255, 255, .96);
+    box-shadow:
+      0 12px 30px rgba(0, 0, 0, .28),
+      inset 0 1px 0 rgba(255, 255, 255, .08);
+    font-size: clamp(13px, .92vw, 16px);
+    font-weight: 620;
+    letter-spacing: .01em;
+    animation: zfPainDanceA 5.2s cubic-bezier(.42, 0, .45, 1) infinite alternate !important;
+    transition:
+      scale 180ms cubic-bezier(.2, .8, .2, 1),
+      rotate 180ms ease,
+      box-shadow 180ms ease,
+      filter 180ms ease;
+    pointer-events: auto;
+    will-change: transform;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:hover,
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:focus-visible {
+    z-index: 30;
+    animation-play-state: paused !important;
+    rotate: 0deg !important;
+    scale: 1.30 !important;
+    filter: saturate(1.14) brightness(1.08);
+    box-shadow:
+      0 22px 48px rgba(0, 0, 0, .44),
+      0 0 24px currentColor;
+    cursor: default;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(2n) {
+    animation-name: zfPainDanceB !important;
+    animation-duration: 6.4s !important;
+    animation-delay: -3.6s !important;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(3n) {
+    animation-name: zfPainDanceC !important;
+    animation-duration: 7.1s !important;
+    animation-delay: -5.8s !important;
+  }
+
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(5n) {
+    animation-name: zfPainDanceWide !important;
+    animation-duration: 7.8s !important;
+    animation-delay: -6.7s !important;
+  }
+
+  /* Highest-pain failures: red. */
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span.is-alert {
+    border-color: rgba(255, 105, 69, .94);
+    background: rgba(145, 35, 20, .90);
+    color: #fff6e8;
+    box-shadow:
+      0 14px 34px rgba(120, 24, 12, .40),
+      0 0 18px rgba(255, 77, 45, .18),
+      inset 0 1px 0 rgba(255, 255, 255, .16);
+  }
+
+  /* Operational frustrations: orange. */
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(2),
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(8),
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(13),
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(18),
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(24) {
+    border-color: rgba(255, 157, 58, .92);
+    background: rgba(178, 78, 15, .88);
+    color: #fff4dd;
+    box-shadow:
+      0 13px 30px rgba(115, 49, 8, .36),
+      0 0 16px rgba(255, 151, 42, .16);
+  }
+
+  /* Repeated daily discomfort: highlighter yellow. */
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(3),
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(6),
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(10),
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(15),
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(21),
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span:nth-child(25) {
+    border-color: rgba(255, 222, 96, .96);
+    background: rgba(229, 174, 30, .92);
+    color: #241706;
+    box-shadow:
+      0 13px 30px rgba(108, 76, 7, .32),
+      0 0 18px rgba(255, 211, 59, .18);
+  }
+}
+
+@keyframes zfPainDanceA {
+  0%   { translate: -34px 20px; rotate: -9deg; scale: .90; }
+  28%  { translate: 36px -28px; rotate: 7deg; scale: 1.09; }
+  62%  { translate: -26px -46px; rotate: -6deg; scale: .96; }
+  100% { translate: 44px 30px; rotate: 10deg; scale: 1.13; }
+}
+
+@keyframes zfPainDanceB {
+  0%   { translate: 42px -30px; rotate: 10deg; scale: 1.10; }
+  36%  { translate: -46px 34px; rotate: -11deg; scale: .89; }
+  70%  { translate: 30px 48px; rotate: 7deg; scale: 1.08; }
+  100% { translate: -38px -36px; rotate: -8deg; scale: .94; }
+}
+
+@keyframes zfPainDanceC {
+  0%   { translate: -24px -42px; rotate: -7deg; scale: .92; }
+  34%  { translate: 48px 24px; rotate: 11deg; scale: 1.12; }
+  68%  { translate: -44px 38px; rotate: -10deg; scale: .90; }
+  100% { translate: 32px -48px; rotate: 6deg; scale: 1.07; }
+}
+
+@keyframes zfPainDanceWide {
+  0%   { translate: -62px -22px; rotate: -12deg; scale: .88; }
+  42%  { translate: 58px 40px; rotate: 11deg; scale: 1.14; }
+  72%  { translate: 16px -54px; rotate: -5deg; scale: 1.00; }
+  100% { translate: -46px 46px; rotate: 8deg; scale: .94; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html body[data-page="home"] main #landing > .zf-home-large-home .zf-home-large-home-pains span {
+    animation: none !important;
+  }
+}
