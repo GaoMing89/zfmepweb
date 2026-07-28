@@ -3223,9 +3223,9 @@ const navigationArchitecture = {
     ],
     specialLabel: "专业专栏",
     specials: [
-      { title: "高端住宅给排水", note: "完整水系统", status: "foundation", href: "#water" },
-      { title: "全屋净水系统", note: "水质与末端专题", status: "foundation", href: "#water-supply-drainage" },
-      { title: "热水循环与静音排水", note: "体验与声学专题", status: "foundation", href: "#water-supply-drainage" }
+      { title: "住宅给水与智慧水务", note: "316L · 稳压 · 监测", status: "live", href: "residential-water-supply/index.html" },
+      { title: "分质净水与鲜活热水", note: "净水 · 软水 · 循环", status: "live", href: "water-treatment-hot-water/index.html" },
+      { title: "静音排水与防臭系统", note: "GF Silenta · PP排水", status: "live", href: "silent-drainage/index.html" }
     ]
   },
   delivery: {
