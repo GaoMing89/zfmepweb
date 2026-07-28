@@ -1,0 +1,35 @@
+/* PC-wide lock for “好空气不是一台设备”.
+   This file loads last so older air scene width variables cannot narrow it. */
+@media (min-width: 1280px) {
+  html body[data-page="systems"] main > #environment-logic.section-shell {
+    width: calc(100vw - 48px) !important;
+    max-width: calc(100vw - 48px) !important;
+    inline-size: calc(100vw - 48px) !important;
+    max-inline-size: calc(100vw - 48px) !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding-left: clamp(44px, 3.7vw, 72px) !important;
+    padding-right: clamp(44px, 3.7vw, 72px) !important;
+    box-sizing: border-box !important;
+    grid-template-columns: minmax(390px, 0.82fr) minmax(0, 1.48fr) !important;
+    column-gap: clamp(34px, 3vw, 58px) !important;
+  }
+
+  html body[data-page="systems"] main > #environment-logic.section-shell > .zf-air-logic-copy,
+  html body[data-page="systems"] main > #environment-logic.section-shell > .zf-air-logic-path {
+    width: auto !important;
+    max-width: none !important;
+    min-width: 0 !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+  }
+
+  html body[data-page="systems"] main > #environment-logic.section-shell > .zf-air-logic-path {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  html body[data-page="systems"] main > #environment-logic.section-shell .zf-air-logic-path article {
+    min-width: 0 !important;
+    overflow-wrap: break-word !important;
+  }
+}
