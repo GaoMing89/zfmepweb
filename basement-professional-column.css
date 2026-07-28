@@ -1,0 +1,56 @@
+@import url("./water-professional-column.css?v=20260729-2");
+
+:root {
+  --wp-accent: #b08a50;
+  --wp-accent-2: #d6b87f;
+  --wp-ink: #17211f;
+  --wp-bg: #f2efe8;
+  --wp-soft: #e7e1d7;
+}
+
+body.is-basement-lifting .wp-hero::after {
+  background: linear-gradient(90deg,rgba(12,22,24,.96) 0%,rgba(12,22,24,.82) 29%,rgba(12,22,24,.23) 57%,rgba(12,22,24,.02) 78%);
+}
+
+body.is-basement-dewpoint {
+  --wp-accent: #338b8f;
+  --wp-accent-2: #7dd5d2;
+}
+
+body.is-basement-envelope {
+  --wp-accent: #9b7653;
+  --wp-accent-2: #ddb984;
+}
+
+.is-basement-lifting .wp-hero-copy,
+.is-basement-dewpoint .wp-hero-copy,
+.is-basement-envelope .wp-hero-copy {
+  width: min(850px, 58vw);
+  padding-right: clamp(44px,5vw,88px);
+}
+
+.is-basement-lifting .wp-hero h1,
+.is-basement-dewpoint .wp-hero h1,
+.is-basement-envelope .wp-hero h1 {
+  font-size: clamp(42px,3.8vw,62px);
+}
+
+.wp-principle {
+  width: var(--wp-copy);
+  margin: 32px auto 0;
+  padding: 28px 32px;
+  border-left: 3px solid var(--wp-accent);
+  background: rgba(255,255,255,.62);
+  color: #40504c;
+  font-size: 16px;
+  line-height: 1.85;
+}
+
+.wp-principle strong { color: var(--wp-ink); }
+
+@media(max-width:760px) {
+  .is-basement-lifting .wp-hero-copy,
+  .is-basement-dewpoint .wp-hero-copy,
+  .is-basement-envelope .wp-hero-copy { width: 100%; padding: 96px 28px; }
+  .wp-principle { width: auto; margin: 24px 18px 0; padding: 22px; font-size: 14px; }
+}

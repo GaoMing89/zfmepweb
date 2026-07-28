@@ -3206,9 +3206,9 @@ const navigationArchitecture = {
     ],
     specialLabel: "专业专栏",
     specials: [
-      { title: "高端住宅地下室", note: "完整环境系统", status: "foundation", href: "#basement-system" },
-      { title: "防潮与露点控制", note: "围护与水汽专题", status: "foundation", href: "#basement-logic" },
-      { title: "地下室排水提升", note: "低位排水专题", status: "foundation", href: "#basement-lifting" }
+      { title: "污水与雨水提升", note: "低位排水与反涌安全", status: "live", href: "basement-lifting/index.html" },
+      { title: "露点与除湿控制", note: "直膨除湿新风与定点排水", status: "live", href: "basement-dewpoint/index.html" },
+      { title: "墙体隔热保温", note: "热边界、冷桥与防结露", status: "live", href: "basement-envelope/index.html" }
     ]
   },
   water: {
