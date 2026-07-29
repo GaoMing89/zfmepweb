@@ -1,6 +1,6 @@
 const AIR_TOPICS = {
   doas: {
-    title:"DOAS 独立新风系统", kicker:"DEDICATED OUTDOOR AIR SYSTEM", hero:"doas-air-soul-interior-20260718.jpg", secondary:"doas-system-route-premium-20260718.jpg",
+    title:"DOAS 独立新风系统", kicker:"DEDICATED OUTDOOR AIR SYSTEM", hero:"doas-air-soul-interior-20260718.jpg", secondary:"doas-system-route-premium-20260718.jpg", closing:"doas-closing/doas-long-term-order-web.jpg",
     claim:"新风应该被独立处理，而不是成为空调的附属负担。",
     lead:"DOAS 独立承担室外空气的过滤、除湿或预处理，再把稳定的新风送到真实停留区；空调则专注处理室内显热负荷。",
     tags:["独立新风","潜热优先","正压边界","风量平衡"],
@@ -11,7 +11,7 @@ const AIR_TOPICS = {
     models:["大平层：卧室夜间空气更新","多层住宅：竖向风路与分区平衡","大宅：高峰场景、冗余与集中监测"]
   },
   decoupling: {
-    title:"温湿度去耦系统", kicker:"SENSIBLE & LATENT LOADS DECOUPLED", hero:"doas-traditional-boundary-premium-20260718.jpg", secondary:"doas-changsha-climate/changsha-climate-decoupling-web.jpg",
+    title:"温湿度去耦系统", kicker:"SENSIBLE & LATENT LOADS DECOUPLED", hero:"doas-traditional-boundary-premium-20260718.jpg", secondary:"doas-changsha-climate/changsha-climate-decoupling-web.jpg", closing:"doas-outcome-logic/five-constant-outcome-logic-web.jpg",
     claim:"温度与湿度是两种负荷，不应该被一次启停同时决定。",
     lead:"末端负责显热，新风与除湿设备负责潜热；把冷、热和水汽分别处理，才能在梅雨季、部分负荷和夜间保持稳定。",
     tags:["显潜热分离","低负荷稳定","避免过冷","露点保护"],
@@ -22,7 +22,7 @@ const AIR_TOPICS = {
     models:["梅雨季大平层：低冷负荷高湿负荷","辐射住宅：露点保护优先","多功能大宅：按房间用途分区去耦"]
   },
   dewpoint: {
-    title:"住宅露点控制", kicker:"DEW POINT IS THE SAFETY LINE", hero:"doas-science-dewpoint-safety-20260718.jpg", secondary:"doas-dewpoint-logic/dewpoint-safety-logic-web.jpg",
+    title:"住宅露点控制", kicker:"DEW POINT IS THE SAFETY LINE", hero:"doas-science-dewpoint-safety-20260718.jpg", secondary:"doas-dewpoint-logic/dewpoint-safety-logic-web.jpg", closing:"generated-air-scenes-v2/air-v2-tea-balcony-snow-solid-wood-table.webp",
     claim:"相对湿度描述感受，露点才揭示空气里真正的水汽负担。",
     lead:"露点与最冷表面温度共同决定结露。控制系统需要同时理解室外空气、室内湿源、冷表面和设备运行状态。",
     tags:["露点监测","表面测温","防结露","联锁保护"],
@@ -33,7 +33,7 @@ const AIR_TOPICS = {
     models:["普通空调住宅：风口与冷桥保护","辐射住宅：水温动态上限","地下及收藏空间：多点监测与趋势预警"]
   },
   radiant: {
-    title:"辐射空调系统", kicker:"COMFORT WITHOUT STRONG DRAFTS", hero:"doas-value-four-season-windless-20260718.jpg", secondary:"doas-comfort-science/thermal-comfort-six-variables-web.jpg",
+    title:"辐射空调系统", kicker:"COMFORT WITHOUT STRONG DRAFTS", hero:"doas-value-four-season-windless-20260718.jpg", secondary:"doas-comfort-science/thermal-comfort-six-variables-web.jpg", closing:"generated-air-scenes-v2/air-v2-meditation-yoga.webp",
     claim:"舒适不一定来自强风，也可以来自稳定而温和的表面换热。",
     lead:"辐射末端通过顶、墙或地面与人体和空间交换热量；新风、除湿与露点保护必须独立成立。",
     tags:["低风感","表面换热","温湿去耦","露点保护"],
@@ -44,7 +44,7 @@ const AIR_TOPICS = {
     models:["大平层：客餐厅与卧室分区","多层住宅：水力竖向平衡","大宅：辐射、新风和快速响应末端组合"]
   },
   heatpump: {
-    title:"空气源两联供系统", kicker:"ONE HEAT PUMP · TWO SEASONS", hero:"residential-climate-assessment-premium-20260718.jpg", secondary:"doas-project-delivery-commissioning-20260718.jpg",
+    title:"空气源两联供系统", kicker:"ONE HEAT PUMP · TWO SEASONS", hero:"residential-climate-assessment-premium-20260718.jpg", secondary:"doas-project-delivery-commissioning-20260718.jpg", closing:"generated-air-scenes-v2/air-v2-reading-study.webp",
     claim:"两联供不是一台主机带两个末端，而是全年水系统的完整协调。",
     lead:"空气源热泵承担夏季制冷和冬季供暖，风机盘管、地暖或辐射末端、缓冲水量、水力分配与除湿共同决定体验。",
     tags:["冷热源","水力系统","地暖","夏季除湿"],
@@ -55,7 +55,7 @@ const AIR_TOPICS = {
     models:["城市大平层：地暖＋风机盘管","三层住宅：分层水力与独立温控","大宅：多模块、冗余和峰谷策略"]
   },
   vrf: {
-    title:"氟系统中央空调", kicker:"DIRECT EXPANSION · PRECISE ZONING", hero:"air-page-hero-premium-20260720.jpg", secondary:"generated-air-scenes-v2/air-v2-reading-study.webp",
+    title:"氟系统中央空调", kicker:"DIRECT EXPANSION · PRECISE ZONING", hero:"air-page-hero-premium-20260720.jpg", secondary:"generated-air-scenes-v2/air-v2-reading-study.webp", closing:"generated-air-scenes-v2/air-v2-esports-room.webp",
     claim:"氟系统的价值不只在快速制冷，更在正确容量、冷媒边界和气流组织。",
     lead:"室外机、室内机、冷媒配管、冷凝水、新风与控制必须作为整体深化，避免匹数够了但房间仍不好用。",
     tags:["快速响应","独立分区","冷媒配管","气流组织"],
@@ -66,7 +66,7 @@ const AIR_TOPICS = {
     models:["大平层：卧室与公区独立控制","多层住宅：冷媒高差与室外机位置","大宅：分系统降低单点故障影响"]
   },
   boilerfloor: {
-    title:"燃气壁挂炉地暖", kicker:"LOW-TEMPERATURE HEATING · WARM SURFACES", hero:"generated-air-scenes-v2/air-v2-elder-bedroom.webp", secondary:"generated-air-scenes-v2/air-v2-master-bedroom-night.webp",
+    title:"燃气壁挂炉地暖", kicker:"LOW-TEMPERATURE HEATING · WARM SURFACES", hero:"generated-air-scenes-v2/air-v2-elder-bedroom.webp", secondary:"generated-air-scenes-v2/air-v2-master-bedroom-night.webp", closing:"generated-air-scenes-v2/air-v2-dining-hotpot-family.webp",
     claim:"地暖的舒适来自低温、连续和均匀，而不是把地面烧得很热。",
     lead:"壁挂炉、混水、水泵、分集水器、盘管和控制共同建立稳定供暖；生活热水与采暖负荷也要明确优先级。",
     tags:["低温供暖","地面辐射","水力平衡","热水优先"],
@@ -77,7 +77,7 @@ const AIR_TOPICS = {
     models:["大平层：分区地暖与生活热水","三层住宅：楼层水力平衡","大宅：采暖热源与星级热水统筹"]
   },
   ventilation: {
-    title:"全屋新风系统", kicker:"FRESH AIR MUST REACH PEOPLE", hero:"generated-air-scenes-v2/air-v2-opening-clean-living.webp", secondary:"generated-air-scenes-v2/air-v2-kids-bedroom-night-closed-curtains.webp",
+    title:"全屋新风系统", kicker:"FRESH AIR MUST REACH PEOPLE", hero:"generated-air-scenes-v2/air-v2-opening-clean-living.webp", secondary:"generated-air-scenes-v2/air-v2-kids-bedroom-night-closed-curtains.webp", closing:"generated-air-scenes-v2/air-v2-cinema-large-dragon-screen.webp",
     claim:"新风不是装了一台机器，而是每个房间都真正得到空气更新。",
     lead:"室外取风、过滤、热回收、风管、送回风和排风路径共同决定卧室夜间与全屋日常空气质量。",
     tags:["空气更新","CO₂控制","过滤","房间平衡"],
@@ -88,7 +88,7 @@ const AIR_TOPICS = {
     models:["大平层：卧室夜间优先","多层住宅：分层干管和平衡","大宅：场景风量与备用运行"]
   },
   kitchenmakeup: {
-    title:"住宅厨房补风系统", kicker:"EXHAUST NEEDS A CONTROLLED WAY BACK", hero:"generated-air-scenes-v2/air-v2-kitchen-comfort.webp", secondary:"generated-air-scenes-v2/air-v2-dining-hotpot-family.webp",
+    title:"住宅厨房补风系统", kicker:"EXHAUST NEEDS A CONTROLLED WAY BACK", hero:"generated-air-scenes-v2/air-v2-kitchen-comfort.webp", secondary:"generated-air-scenes-v2/air-v2-dining-hotpot-family.webp", closing:"kitchen.webp",
     claim:"油烟机排走多少空气，住宅就必须有一条受控的空气补入路径。",
     lead:"大风量排油烟如果没有补风，会造成门难开、冷风倒灌、卫生间返味和壁炉风险。补风要服务排烟，同时不扰动灶具与全屋舒适。",
     tags:["排补平衡","负压可控","油烟捕集","全屋不扰"],
@@ -99,7 +99,7 @@ const AIR_TOPICS = {
     models:["封闭厨房：局部补风与门缝管理","开放厨房：捕集与全屋压差优先","大宅双厨房：中西厨分别计算与联动"]
   },
   dehumidfresh: {
-    title:"除湿新风系统", kicker:"FRESH AIR WITHOUT HUMIDITY BURDEN", hero:"doas-climate-hunan-premium-20260718.jpg", secondary:"climate-humidity-pressure-negative.webp",
+    title:"除湿新风系统", kicker:"FRESH AIR WITHOUT HUMIDITY BURDEN", hero:"doas-climate-hunan-premium-20260718.jpg", secondary:"climate-humidity-pressure-negative.webp", closing:"generated-air-scenes-v2/air-v2-master-bedroom-night.webp",
     claim:"湖南住宅需要的，不只是新鲜空气，而是不把室外湿气一起带进来。",
     lead:"除湿新风机在引入室外空气时同步处理潜热负荷，并与空调、排风和冷凝水系统协同。",
     tags:["新风除湿","梅雨季","送风露点","冷凝排水"],
@@ -110,7 +110,7 @@ const AIR_TOPICS = {
     models:["大平层：卧室夜间新风除湿","多层住宅：分层风量与冷凝排水","地下复合住宅：高湿区域独立控制"]
   },
   pointexhaust: {
-    title:"定点排风系统", kicker:"REMOVE POLLUTANTS AT THE SOURCE", hero:"generated-air-scenes-v2/air-v2-bathroom-comfort.webp", secondary:"generated-air-scenes-v2/air-v2-kitchen-comfort.webp",
+    title:"定点排风系统", kicker:"REMOVE POLLUTANTS AT THE SOURCE", hero:"generated-air-scenes-v2/air-v2-bathroom-comfort.webp", secondary:"generated-air-scenes-v2/air-v2-kitchen-comfort.webp", closing:"generated-air-scenes-v2/air-v2-music-collection.webp",
     claim:"气味、湿气和污染物，应该在扩散以前从源头离开。",
     lead:"卫生间、衣帽间、家政、设备间与特殊空间需要不同排风时序和压差。定点排风必须有对应补风路径。",
     tags:["源头捕集","异味控制","排湿","负压边界"],
@@ -121,7 +121,7 @@ const AIR_TOPICS = {
     models:["双卫大平层：独立湿控排风","多层住宅：竖井与止回平衡","大宅：卫生间、衣帽与家政分类排风"]
   },
   constanthumidity: {
-    title:"恒温恒湿系统", kicker:"STABILITY ACROSS HOURS AND SEASONS", hero:"generated-air-scenes-v2/air-v2-master-bedroom-night.webp", secondary:"generated-air-scenes-v2/air-v2-meditation-yoga.webp",
+    title:"恒温恒湿系统", kicker:"STABILITY ACROSS HOURS AND SEASONS", hero:"generated-air-scenes-v2/air-v2-master-bedroom-night.webp", secondary:"generated-air-scenes-v2/air-v2-meditation-yoga.webp", closing:"generated-air-scenes-v2/air-v2-opening-clean-living.webp",
     claim:"恒定不是把数字锁死，而是在变化中保持身体可以感知的稳定。",
     lead:"温度、湿度、新风、围护和内部负荷随时变化。恒温恒湿系统通过冷热源、除湿、加湿与末端控制协同减少波动。",
     tags:["全年稳定","显潜热协同","精细控制","趋势记录"],
@@ -132,7 +132,7 @@ const AIR_TOPICS = {
     models:["舒适型大平层：日常稳定优先","收藏复合住宅：特殊房间独立","大宅：多区域控制与中央监测"]
   },
   clean: {
-    title:"恒洁恒净空气系统", kicker:"CLEAN AIR IS A CONTINUOUS STATE", hero:"doas-five-outcomes-premium-20260718.jpg", secondary:"authority-sources/well-air-web.png",
+    title:"恒洁恒净空气系统", kicker:"CLEAN AIR IS A CONTINUOUS STATE", hero:"doas-five-outcomes-premium-20260718.jpg", secondary:"authority-sources/well-air-web.png", closing:"generated-air-scenes-v2/air-v2-meditation-yoga.webp",
     claim:"空气洁净不是一次净化，而是污染源、过滤和空气更新长期保持平衡。",
     lead:"室外颗粒物、室内释放物、烹饪与人员活动同时存在。过滤、新风、排风、材料控制和维护共同决定真实空气质量。",
     tags:["颗粒物过滤","VOC管理","源头控制","持续监测"],
@@ -143,7 +143,7 @@ const AIR_TOPICS = {
     models:["城市大平层：室外颗粒物优先","新装修住宅：源头与通风优先","大宅：分区过滤、事件排风和趋势管理"]
   },
   insulation: {
-    title:"住宅建筑保温系统", kicker:"THE ENVELOPE SETS THE HVAC LOAD", hero:"doas-value-breathing-home-20260718.jpg", secondary:"air-still-curtain-v2.webp",
+    title:"住宅建筑保温系统", kicker:"THE ENVELOPE SETS THE HVAC LOAD", hero:"doas-value-breathing-home-20260718.jpg", secondary:"air-still-curtain-v2.webp", closing:"generated-air-scenes-v2/air-v2-opening-clean-living.webp",
     claim:"设备决定如何处理负荷，建筑围护先决定负荷有多大。",
     lead:"外墙、屋面、门窗、遮阳、气密和热桥共同影响室内冷热需求、表面温度、结露风险与设备容量。",
     tags:["连续保温","门窗气密","热桥控制","负荷降低"],
@@ -155,9 +155,31 @@ const AIR_TOPICS = {
   }
 };
 
+const AIR_PALETTES={
+  doas:["#168d91","#61d1c7","#426fd0"],
+  decoupling:["#467fc7","#56c8c0","#7b68c5"],
+  dewpoint:["#316ed4","#65bce1","#6f66c7"],
+  radiant:["#6f62c7","#78a7e8","#d29b4a"],
+  heatpump:["#4778c6","#59b7aa","#7d69be"],
+  vrf:["#356fd2","#65a8ed","#685ebd"],
+  boilerfloor:["#c96832","#e0a34b","#8870bf"],
+  ventilation:["#168d88","#63cbbd","#4b7bc9"],
+  kitchenmakeup:["#d36b3f","#e4aa4d","#339f94"],
+  dehumidfresh:["#168c9e","#55c8ca","#5573cb"],
+  pointexhaust:["#d35e4d","#e19b50","#367d9f"],
+  constanthumidity:["#655fc2","#5da9d5","#d4a148"],
+  clean:["#568c58","#71b99d","#4b81c2"],
+  insulation:["#887052","#c29862","#428a80"]
+};
 const key=document.body.dataset.topic;
 const d=AIR_TOPICS[key];
 if(!d) throw new Error("Unknown air topic");
+const palette=AIR_PALETTES[key];
+document.documentElement.style.setProperty("--topic",palette[0]);
+document.documentElement.style.setProperty("--topic-2",palette[1]);
+document.documentElement.style.setProperty("--topic-3",palette[2]);
+document.documentElement.style.setProperty("--wp-accent",palette[0]);
+document.documentElement.style.setProperty("--wp-accent-2",palette[1]);
 document.title=`${d.title} | ZEFENG MEP`;
 const outcomeNames=["01 RESULT","02 RESULT","03 RESULT","04 RESULT","05 RESULT"];
 const flowNums=["01","02","03","04","05","06"];
@@ -165,10 +187,10 @@ const modelNames=["MODEL 01","MODEL 02","MODEL 03"];
 const [bad,good]=d.compare.map(s=>s.split("|"));
 document.querySelector("#air-topic-main").innerHTML=`
 <section class="wp-hero"><img src="../images/${d.hero}" alt="${d.title}住宅场景"><div class="wp-hero-copy"><p class="wp-kicker">${d.kicker}</p><h1>${d.claim}</h1><p class="wp-hero-lead">${d.lead}</p><div class="wp-hero-tags">${d.tags.map(x=>`<span>${x}</span>`).join("")}</div></div></section>
-<section class="wp-section" id="outcomes"><header class="wp-section-head"><div><p class="wp-kicker">LIVED OUTCOMES</p><h2>设备退后，生活结果应该走到前面。</h2></div><div>${d.lead}</div></header><figure class="wp-wide-image"><img src="../images/${d.secondary}" alt="${d.title}的系统逻辑与住宅结果"></figure><div class="wp-outcomes">${d.outcomes.map((x,i)=>`<article class="wp-card"><span>${outcomeNames[i]}</span><strong>${x[0]}</strong><p>${x[1]}</p></article>`).join("")}</div></section>
-<section class="wp-section wp-system" id="system"><header class="wp-section-head"><div><p class="wp-kicker">SYSTEM ROUTE</p><h2>先建立完整判断路径，再谈设备组合。</h2></div><div>每一段都必须可计算、可施工、可调试，并在真实运行中持续成立。</div></header><div class="wp-flow">${d.flow.map((x,i)=>`<article><span>${flowNums[i]}</span><strong>${x}</strong><p>作为完整系统路径中的必要判断与交付节点。</p></article>`).join("")}</div></section>
+<section class="wp-section" id="outcomes"><header class="wp-section-head"><div><p class="wp-kicker">LIVED OUTCOMES</p><h2>设备退后，生活结果应该走到前面。</h2></div><div>${d.lead}</div></header><div class="wp-outcomes">${d.outcomes.map((x,i)=>`<article class="wp-card"><span>${outcomeNames[i]}</span><strong>${x[0]}</strong><p>${x[1]}</p></article>`).join("")}</div></section>
+<section class="wp-section wp-system" id="system" style="--section-image:url('../images/${d.secondary}')"><header class="wp-section-head"><div><p class="wp-kicker">SYSTEM ROUTE</p><h2>先建立完整判断路径，再谈设备组合。</h2></div><div>每一段都必须可计算、可施工、可调试，并在真实运行中持续成立。</div></header><div class="wp-flow">${d.flow.map((x,i)=>`<article><span>${flowNums[i]}</span><strong>${x}</strong><p>作为完整系统路径中的必要判断与交付节点。</p></article>`).join("")}</div></section>
 <section class="wp-section" id="boundary"><header class="wp-section-head"><div><p class="wp-kicker">FROM EQUIPMENT TO SYSTEM</p><h2>有设备，不等于系统已经成立。</h2></div><div>品质住宅的差异，来自负荷、边界、控制和交付是否被组织成一套逻辑。</div></header><div class="wp-compare"><article><h3>常见的设备式做法</h3><ul>${bad.map(x=>`<li>${x}</li>`).join("")}</ul></article><article><h3>完整的系统式做法</h3><ul>${good.map(x=>`<li>${x}</li>`).join("")}</ul></article></div><div class="wp-boundary"><strong>选择边界：</strong>本专栏不提供脱离建筑条件的固定套餐。品牌和型号必须服从逐室负荷、气候、人员、空间、噪声、检修与长期运行要求。</div></section>
 <section class="wp-section" id="parameters"><header class="wp-section-head"><div><p class="wp-kicker">DESIGN · TEST · RECORD</p><h2>关键参数必须能够被现场验证。</h2></div><div>以下为项目沟通与验收维度，具体目标值依据现行规范、建筑条件和家庭需求确定。</div></header><div class="wp-parameters">${d.params.map((x,i)=>`<article class="wp-param"><em>0${i+1}</em><strong>${x}</strong><p>设计阶段明确目标与测点，调试阶段记录实测结果和运行边界。</p></article>`).join("")}</div></section>
 <section class="wp-section" id="models"><header class="wp-section-head"><div><p class="wp-kicker">THREE DESIGN MODELS</p><h2>住宅不同，系统判断的起点也不同。</h2></div><div>以下为设计沟通模型，不代表真实案例或固定品牌套餐。</div></header><div class="wp-models">${d.models.map((x,i)=>{const [name,note]=x.split("：");return `<article class="wp-model"><b>${modelNames[i]}</b><h3>${name}</h3><dl><div><dt>核心任务</dt><dd>${note}</dd></div><div><dt>设计方式</dt><dd>依据逐室负荷、使用时间和建筑边界完成系统深化。</dd></div><div><dt>交付结果</dt><dd>参数、控制、测试和维护资料完整留档。</dd></div></dl></article>`}).join("")}</div></section>
 <section class="wp-section" id="delivery"><header class="wp-section-head"><div><p class="wp-kicker">DESIGN TO OPERATION</p><h2>空气系统的价值，要在入住以后持续成立。</h2></div><div>从负荷判断到季节复核，完整交付不能停在设备通电。</div></header><div class="wp-delivery">${["需求与边界","负荷计算","空间深化","洁净施工","联合调试","季节复核"].map((x,i)=>`<article><span>0${i+1}</span><strong>${x}</strong><p>形成对应记录并交付长期运行。</p></article>`).join("")}</div></section>
-<section class="wp-consult"><p class="wp-kicker">AIR SHOULD SERVE LIFE</p><h2>${d.claim}</h2><p>${d.lead}</p><a class="wp-button" href="../index.html#project-access-contact">提交住宅空气信息</a></section>`;
+<section class="wp-consult" style="--closing-image:url('../images/${d.closing}')"><p class="wp-kicker">AIR SHOULD SERVE LIFE</p><h2>${d.claim}</h2><p>${d.lead}</p><a class="wp-button" href="../index.html#project-access-contact">提交住宅空气信息</a></section>`;
