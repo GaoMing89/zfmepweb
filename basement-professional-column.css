@@ -1,4 +1,4 @@
-@import url("./water-professional-column.css?v=20260729-2");
+@import url("./water-professional-column.css?v=20260730-1");
 
 :root {
   --wp-accent: #b08a50;
@@ -25,14 +25,14 @@ body.is-basement-envelope {
 .is-basement-lifting .wp-hero-copy,
 .is-basement-dewpoint .wp-hero-copy,
 .is-basement-envelope .wp-hero-copy {
-  width: min(850px, 58vw);
+  width: min(1500px, 80vw);
   padding-right: clamp(44px,5vw,88px);
 }
 
 .is-basement-lifting .wp-hero h1,
 .is-basement-dewpoint .wp-hero h1,
 .is-basement-envelope .wp-hero h1 {
-  font-size: clamp(42px,3.8vw,62px);
+  font-size: clamp(40px,2.7vw,50px);
 }
 
 .wp-principle {
