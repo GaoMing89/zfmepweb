@@ -9,6 +9,7 @@
   --wp-ink: #132725;
   --wp-bg: #f3f2ed;
   --wp-soft: #e5f0ee;
+  --wp-copy: min(1500px, calc(100vw - 160px));
 }
 
 .wp-main {
@@ -17,8 +18,21 @@
     radial-gradient(circle at 5% 20%, color-mix(in srgb,var(--topic) 8%,transparent), transparent 22%),
     radial-gradient(circle at 94% 52%, color-mix(in srgb,var(--topic-3) 7%,transparent), transparent 20%);
 }
-.wp-hero-copy { width: min(850px,58vw); padding-right: clamp(44px,5vw,88px); }
-.wp-hero h1 { font-size: clamp(42px,3.8vw,62px); }
+.wp-hero-copy { width: min(1500px,80vw); padding-right: clamp(44px,5vw,88px); }
+.wp-hero h1,
+.wp-section-head h2,
+.wp-consult h2 {
+  word-break: keep-all;
+  overflow-wrap: normal;
+  text-wrap: pretty;
+}
+.wp-hero h1 { max-width: 30em; font-size: clamp(40px,2.7vw,50px); }
+.wp-section-head {
+  grid-template-columns: minmax(0,1.18fr) minmax(360px,.82fr);
+  gap: clamp(72px,6vw,120px);
+}
+.wp-section-head h2 { max-width: 21em; font-size: clamp(34px,2.35vw,42px); }
+.wp-consult h2 { max-width: 28em; font-size: clamp(36px,2.8vw,50px); }
 .wp-hero::after { background: linear-gradient(90deg,rgba(6,22,23,.96) 0%,rgba(6,22,23,.80) 30%,rgba(6,22,23,.22) 57%,rgba(6,22,23,.01) 80%); }
 .wp-boundary { width: var(--wp-copy); margin: 32px auto 0; padding: 28px 32px; border-left: 3px solid var(--wp-accent); background: rgba(255,255,255,.65); color: #49615e; font-size: 15px; line-height: 1.85; }
 .wp-boundary strong { color: var(--wp-ink); }
@@ -121,6 +135,12 @@
 
 @media(max-width:760px) {
   .wp-hero-copy { width: 100%; padding: 96px 28px; }
+  .wp-hero h1,
+  .wp-section-head h2,
+  .wp-consult h2 {
+    word-break: normal;
+    overflow-wrap: anywhere;
+  }
   .wp-boundary { width: auto; margin: 24px 18px 0; padding: 22px; font-size: 14px; }
   .wp-system { background-position:64% center; }
   .wp-consult { background-position:65% center; }

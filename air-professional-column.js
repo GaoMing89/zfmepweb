@@ -44,7 +44,7 @@ const AIR_TOPICS = {
     models:["大平层：客餐厅与卧室分区","多层住宅：水力竖向平衡","大宅：辐射、新风和快速响应末端组合"]
   },
   heatpump: {
-    title:"空气源两联供系统", kicker:"ONE HEAT PUMP · TWO SEASONS", hero:"residential-climate-assessment-premium-20260718.jpg", secondary:"doas-project-delivery-commissioning-20260718.jpg", closing:"generated-air-scenes-v2/air-v2-reading-study.webp",
+    title:"空气源两联供系统", kicker:"ONE HEAT PUMP · TWO SEASONS", hero:"residential-climate-assessment-premium-20260718.jpg", secondary:"doas-project-delivery-commissioning-20260718.jpg", closing:"five-constant-hero-four-season-20260718.jpg",
     claim:"两联供不是一台主机带两个末端，而是全年水系统的完整协调。",
     lead:"空气源热泵承担夏季制冷和冬季供暖，风机盘管、地暖或辐射末端、缓冲水量、水力分配与除湿共同决定体验。",
     tags:["冷热源","水力系统","地暖","夏季除湿"],
@@ -66,7 +66,7 @@ const AIR_TOPICS = {
     models:["大平层：卧室与公区独立控制","多层住宅：冷媒高差与室外机位置","大宅：分系统降低单点故障影响"]
   },
   boilerfloor: {
-    title:"燃气壁挂炉地暖", kicker:"LOW-TEMPERATURE HEATING · WARM SURFACES", hero:"generated-air-scenes-v2/air-v2-elder-bedroom.webp", secondary:"generated-air-scenes-v2/air-v2-master-bedroom-night.webp", closing:"generated-air-scenes-v2/air-v2-dining-hotpot-family.webp",
+    title:"燃气壁挂炉地暖", kicker:"LOW-TEMPERATURE HEATING · WARM SURFACES", hero:"generated-air-scenes-v2/air-v2-elder-bedroom.webp", secondary:"generated-air-scenes-v2/air-v2-master-bedroom-night.webp", closing:"five-constant-hero-premium-20260718.jpg",
     claim:"地暖的舒适来自低温、连续和均匀，而不是把地面烧得很热。",
     lead:"壁挂炉、混水、水泵、分集水器、盘管和控制共同建立稳定供暖；生活热水与采暖负荷也要明确优先级。",
     tags:["低温供暖","地面辐射","水力平衡","热水优先"],
@@ -99,7 +99,7 @@ const AIR_TOPICS = {
     models:["封闭厨房：局部补风与门缝管理","开放厨房：捕集与全屋压差优先","大宅双厨房：中西厨分别计算与联动"]
   },
   dehumidfresh: {
-    title:"除湿新风系统", kicker:"FRESH AIR WITHOUT HUMIDITY BURDEN", hero:"doas-climate-hunan-premium-20260718.jpg", secondary:"climate-humidity-pressure-negative.webp", closing:"generated-air-scenes-v2/air-v2-master-bedroom-night.webp",
+    title:"除湿新风系统", kicker:"FRESH AIR WITHOUT HUMIDITY BURDEN", hero:"doas-climate-hunan-premium-20260718.jpg", secondary:"climate-humidity-pressure-negative.webp", closing:"five-constant-doas-generated.png",
     claim:"湖南住宅需要的，不只是新鲜空气，而是不把室外湿气一起带进来。",
     lead:"除湿新风机在引入室外空气时同步处理潜热负荷，并与空调、排风和冷凝水系统协同。",
     tags:["新风除湿","梅雨季","送风露点","冷凝排水"],
@@ -110,7 +110,7 @@ const AIR_TOPICS = {
     models:["大平层：卧室夜间新风除湿","多层住宅：分层风量与冷凝排水","地下复合住宅：高湿区域独立控制"]
   },
   pointexhaust: {
-    title:"定点排风系统", kicker:"REMOVE POLLUTANTS AT THE SOURCE", hero:"generated-air-scenes-v2/air-v2-bathroom-comfort.webp", secondary:"generated-air-scenes-v2/air-v2-kitchen-comfort.webp", closing:"generated-air-scenes-v2/air-v2-music-collection.webp",
+    title:"定点排风系统", kicker:"REMOVE POLLUTANTS AT THE SOURCE", hero:"generated-air-scenes-v2/air-v2-bathroom-comfort.webp", secondary:"bathroom-negative-pressure.webp", closing:"generated-air-scenes-v2/air-v2-music-collection.webp",
     claim:"气味、湿气和污染物，应该在扩散以前从源头离开。",
     lead:"卫生间、衣帽间、家政、设备间与特殊空间需要不同排风时序和压差。定点排风必须有对应补风路径。",
     tags:["源头捕集","异味控制","排湿","负压边界"],
@@ -121,7 +121,7 @@ const AIR_TOPICS = {
     models:["双卫大平层：独立湿控排风","多层住宅：竖井与止回平衡","大宅：卫生间、衣帽与家政分类排风"]
   },
   constanthumidity: {
-    title:"恒温恒湿系统", kicker:"STABILITY ACROSS HOURS AND SEASONS", hero:"generated-air-scenes-v2/air-v2-master-bedroom-night.webp", secondary:"generated-air-scenes-v2/air-v2-meditation-yoga.webp", closing:"generated-air-scenes-v2/air-v2-opening-clean-living.webp",
+    title:"恒温恒湿系统", kicker:"STABILITY ACROSS HOURS AND SEASONS", hero:"five-constant-hero-breathing-20260718.jpg", secondary:"doas-science-thermal-comfort-20260718.jpg", closing:"five-constant-closing-generated.png",
     claim:"恒定不是把数字锁死，而是在变化中保持身体可以感知的稳定。",
     lead:"温度、湿度、新风、围护和内部负荷随时变化。恒温恒湿系统通过冷热源、除湿、加湿与末端控制协同减少波动。",
     tags:["全年稳定","显潜热协同","精细控制","趋势记录"],
@@ -132,7 +132,7 @@ const AIR_TOPICS = {
     models:["舒适型大平层：日常稳定优先","收藏复合住宅：特殊房间独立","大宅：多区域控制与中央监测"]
   },
   clean: {
-    title:"恒洁恒净空气系统", kicker:"CLEAN AIR IS A CONTINUOUS STATE", hero:"doas-five-outcomes-premium-20260718.jpg", secondary:"authority-sources/well-air-web.png", closing:"generated-air-scenes-v2/air-v2-meditation-yoga.webp",
+    title:"恒洁恒净空气系统", kicker:"CLEAN AIR IS A CONTINUOUS STATE", hero:"doas-five-outcomes-premium-20260718.jpg", secondary:"authority-sources/well-air-web.png", closing:"five-constant-comfort-generated.png",
     claim:"空气洁净不是一次净化，而是污染源、过滤和空气更新长期保持平衡。",
     lead:"室外颗粒物、室内释放物、烹饪与人员活动同时存在。过滤、新风、排风、材料控制和维护共同决定真实空气质量。",
     tags:["颗粒物过滤","VOC管理","源头控制","持续监测"],
@@ -143,7 +143,7 @@ const AIR_TOPICS = {
     models:["城市大平层：室外颗粒物优先","新装修住宅：源头与通风优先","大宅：分区过滤、事件排风和趋势管理"]
   },
   insulation: {
-    title:"住宅建筑保温系统", kicker:"THE ENVELOPE SETS THE HVAC LOAD", hero:"doas-value-breathing-home-20260718.jpg", secondary:"air-still-curtain-v2.webp", closing:"generated-air-scenes-v2/air-v2-opening-clean-living.webp",
+    title:"住宅建筑保温系统", kicker:"THE ENVELOPE SETS THE HVAC LOAD", hero:"doas-value-breathing-home-20260718.jpg", secondary:"air-still-curtain-v2.webp", closing:"invisible-comfort-green.webp",
     claim:"设备决定如何处理负荷，建筑围护先决定负荷有多大。",
     lead:"外墙、屋面、门窗、遮阳、气密和热桥共同影响室内冷热需求、表面温度、结露风险与设备容量。",
     tags:["连续保温","门窗气密","热桥控制","负荷降低"],
