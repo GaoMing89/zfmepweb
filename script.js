@@ -3189,8 +3189,9 @@ const navigationArchitecture = {
     specialLabel: "专业专栏",
     specials: [
       { title: "五恒住宅系统", note: "完整专题 · 已上线", status: "live", href: "five-constant-system/index.html" },
-      { title: "DOAS 新风系统", note: "新风与湿度管理", status: "foundation", href: "five-constant-system/index.html#fc-system" },
-      { title: "露点与除湿控制", note: "湖南高湿住宅专题", status: "foundation", href: "five-constant-system/index.html#fc-parameters" }
+      { title: "DOAS 新风系统", note: "独立新风与潜热管理", status: "live", href: "air-doas/index.html" },
+      { title: "露点控制", note: "冷表面与结露安全", status: "live", href: "air-dewpoint/index.html" },
+      { title: "全屋新风系统", note: "房间空气更新专题", status: "live", href: "air-ventilation/index.html" }
     ]
   },
   basement: {

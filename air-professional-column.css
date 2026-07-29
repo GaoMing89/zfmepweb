@@ -1,0 +1,21 @@
+@import url("./water-professional-column.css?v=20260729-2");
+
+:root {
+  --wp-accent: #2b8f96;
+  --wp-accent-2: #79d5d2;
+  --wp-ink: #132725;
+  --wp-bg: #f3f2ed;
+  --wp-soft: #e5f0ee;
+}
+
+.wp-main { padding-bottom: 0; }
+.wp-hero-copy { width: min(850px,58vw); padding-right: clamp(44px,5vw,88px); }
+.wp-hero h1 { font-size: clamp(42px,3.8vw,62px); }
+.wp-hero::after { background: linear-gradient(90deg,rgba(6,22,23,.96) 0%,rgba(6,22,23,.80) 30%,rgba(6,22,23,.22) 57%,rgba(6,22,23,.01) 80%); }
+.wp-boundary { width: var(--wp-copy); margin: 32px auto 0; padding: 28px 32px; border-left: 3px solid var(--wp-accent); background: rgba(255,255,255,.65); color: #49615e; font-size: 15px; line-height: 1.85; }
+.wp-boundary strong { color: var(--wp-ink); }
+
+@media(max-width:760px) {
+  .wp-hero-copy { width: 100%; padding: 96px 28px; }
+  .wp-boundary { width: auto; margin: 24px 18px 0; padding: 22px; font-size: 14px; }
+}
