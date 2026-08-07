@@ -48,9 +48,43 @@ body.is-basement-envelope {
 
 .wp-principle strong { color: var(--wp-ink); }
 
+.wp-dew-formula {
+  width: var(--wp-copy);
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1.05fr .95fr;
+  gap: 42px;
+  align-items: center;
+  padding: clamp(32px,4vw,56px);
+  border-radius: 30px;
+  background: linear-gradient(135deg,#102d32,#1d555b);
+  color: #fff;
+}
+.wp-dew-formula article { display:flex; align-items:center; gap:14px; flex-wrap:wrap; font-size:clamp(18px,1.35vw,24px); }
+.wp-dew-formula article span { padding:12px 16px; border:1px solid rgba(255,255,255,.24); border-radius:999px; background:rgba(255,255,255,.08); }
+.wp-dew-formula article b { color:var(--wp-accent-2); }
+.wp-dew-formula article strong { color:#fff0c8; }
+.wp-dew-formula > p { margin:0; color:rgba(255,255,255,.72); font-size:15px; line-height:1.9; }
+.wp-dew-example { width:var(--wp-copy); margin:16px auto 0; display:grid; grid-template-columns:1fr 1fr; gap:16px; }
+.wp-dew-example article { padding:34px; border:1px solid var(--wp-line); border-radius:26px; background:rgba(255,255,255,.68); }
+.wp-dew-example small,.wp-device-grid span { color:var(--wp-accent); font-size:11px; font-weight:800; letter-spacing:.12em; }
+.wp-dew-example h3,.wp-device-grid h3 { margin:14px 0 12px; font-size:23px; line-height:1.35; }
+.wp-dew-example p,.wp-device-grid p { margin:0; color:var(--wp-muted); font-size:14px; line-height:1.8; }
+.wp-device-grid { display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:12px; margin-bottom:26px; }
+.wp-device-grid article { min-height:230px; padding:30px 28px; border:1px solid var(--wp-line); border-radius:25px; background:rgba(255,255,255,.66); }
+.wp-device-grid article.is-system { border-color:rgba(51,139,143,.38); background:linear-gradient(145deg,#d8efea,#f4fbf9); box-shadow:0 18px 42px rgba(38,105,109,.12); }
+.wp-principle + .wp-principle { margin-top:12px; }
+
 @media(max-width:760px) {
   .is-basement-lifting .wp-hero-copy,
   .is-basement-dewpoint .wp-hero-copy,
   .is-basement-envelope .wp-hero-copy { width: 100%; padding: 96px 28px; }
   .wp-principle { width: auto; margin: 24px 18px 0; padding: 22px; font-size: 14px; }
+  .wp-dew-formula,.wp-dew-example { width:auto; margin-left:18px; margin-right:18px; grid-template-columns:1fr; }
+  .wp-dew-formula { gap:24px; padding:26px 22px; }
+  .wp-device-grid { grid-template-columns:1fr; }
+}
+
+@media(min-width:761px) and (max-width:1100px) {
+  .wp-device-grid { grid-template-columns:repeat(2,minmax(0,1fr)); }
 }
