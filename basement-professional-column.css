@@ -74,6 +74,20 @@ body.is-basement-envelope {
 .wp-device-grid article { min-height:230px; padding:30px 28px; border:1px solid var(--wp-line); border-radius:25px; background:rgba(255,255,255,.66); }
 .wp-device-grid article.is-system { border-color:rgba(51,139,143,.38); background:linear-gradient(145deg,#d8efea,#f4fbf9); box-shadow:0 18px 42px rgba(38,105,109,.12); }
 .wp-principle + .wp-principle { margin-top:12px; }
+.wp-principle-visual { width:var(--wp-copy); margin:20px auto 0; overflow:hidden; border-radius:30px; background:#12292d; box-shadow:0 20px 55px rgba(22,42,43,.14); }
+.wp-principle-visual img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; }
+.wp-principle-visual figcaption { display:grid; grid-template-columns:minmax(220px,.4fr) 1fr; gap:30px; align-items:center; padding:25px 30px; background:#fff; }
+.wp-principle-visual figcaption strong { color:var(--wp-ink); font-size:18px; }
+.wp-principle-visual figcaption span { color:var(--wp-muted); font-size:14px; line-height:1.75; }
+.wp-principle-visual.is-dark figcaption { background:rgba(7,21,24,.9); }
+.wp-principle-visual.is-dark figcaption strong { color:#fff; }
+.wp-principle-visual.is-dark figcaption span { color:rgba(255,255,255,.64); }
+.wp-image-compare { display:grid; grid-template-columns:1fr 1fr; gap:14px; margin:0 0 18px; }
+.wp-image-compare figure { margin:0; overflow:hidden; border-radius:26px; background:#fff; border:1px solid var(--wp-line); }
+.wp-image-compare img { display:block; width:100%; aspect-ratio:16/9; object-fit:cover; }
+.wp-image-compare figcaption { display:grid; gap:6px; padding:20px 24px 23px; }
+.wp-image-compare b { font-size:18px; color:var(--wp-ink); }
+.wp-image-compare span { color:var(--wp-muted); font-size:13px; line-height:1.65; }
 
 @media(max-width:760px) {
   .is-basement-lifting .wp-hero-copy,
@@ -83,6 +97,9 @@ body.is-basement-envelope {
   .wp-dew-formula,.wp-dew-example { width:auto; margin-left:18px; margin-right:18px; grid-template-columns:1fr; }
   .wp-dew-formula { gap:24px; padding:26px 22px; }
   .wp-device-grid { grid-template-columns:1fr; }
+  .wp-principle-visual { width:auto; margin-left:18px; margin-right:18px; border-radius:22px; }
+  .wp-principle-visual figcaption { grid-template-columns:1fr; gap:8px; padding:20px; }
+  .wp-image-compare { grid-template-columns:1fr; }
 }
 
 @media(min-width:761px) and (max-width:1100px) {
