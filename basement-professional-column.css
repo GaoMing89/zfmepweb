@@ -17,6 +17,23 @@ body.is-basement-dewpoint {
   --wp-accent-2: #7dd5d2;
 }
 
+@media(min-width:761px) {
+  .is-basement-dewpoint .wp-dew-formula,
+  .is-basement-dewpoint .wp-dew-example,
+  .is-basement-dewpoint .wp-principle-visual,
+  .is-basement-dewpoint .wp-principle {
+    width: 100%;
+  }
+  .is-basement-dewpoint .wp-system .wp-principle-visual {
+    width: calc(100% + 2 * clamp(44px, 6vw, 92px));
+    margin-right: calc(-1 * clamp(44px, 6vw, 92px));
+    margin-bottom: calc(-1 * clamp(44px, 6vw, 92px));
+    margin-left: calc(-1 * clamp(44px, 6vw, 92px));
+    border-radius: 0;
+    box-shadow: none;
+  }
+}
+
 body.is-basement-envelope {
   --wp-accent: #9b7653;
   --wp-accent-2: #ddb984;
