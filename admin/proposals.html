@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="robots" content="noindex, nofollow" />
+    <title>提案管理中心 | ZEFENG MEP</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Noto+Serif+SC:wght@500;600&family=Noto+Sans+SC:wght@400;500;600&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="../maintenance-system.css?v=20260812-proposal-admin-v2" />
+    <link rel="stylesheet" href="proposal-admin.css?v=20260812-v2" />
+    <link rel="stylesheet" href="proposal-sales-insights.css?v=20260817-v1" />
+  </head>
+  <body data-proposal-admin>
+    <header class="zf-topbar">
+      <a class="zf-brand" href="../index.html"><img src="../images/zefeng-logo-mark.webp" alt="" /><span><strong>ZEFENG MEP</strong><small>PROPOSAL OPERATIONS</small></span></a>
+      <div class="zf-top-actions"><span class="zf-user"><strong data-user-name>管理员</strong><span>提案管理中心</span></span><button class="zf-btn small ghost" type="button" data-logout>退出</button></div>
+    </header>
+
+    <div class="zf-admin-layout">
+      <aside class="zf-side"><nav><a href="index.html">维保总览</a><a href="device.html">设备台账</a><a class="active" href="proposals.html">提案管理</a></nav></aside>
+      <main class="zf-admin-main">
+        <nav class="zf-mobile-admin-nav" aria-label="手机端后台导航"><a href="index.html">总览</a><a href="device.html">设备</a><a class="active" href="proposals.html">提案</a></nav>
+        <header class="proposal-hero">
+          <div><p class="zf-kicker">Private Proposal Management</p><h1>提案管理中心</h1><p>管理每一位客户的提案、访问权限与查看记录。</p></div>
+          <button class="zf-btn primary" type="button" data-new-proposal>＋ 新建提案</button>
+        </header>
+        <p class="zf-error" data-page-error></p>
+
+        <section class="proposal-metrics">
+          <article><span>全部提案</span><strong data-metric-total>0</strong></article>
+          <article><span>有效授权</span><strong data-metric-active>0</strong></article>
+          <article><span>累计查看</span><strong data-metric-views>0</strong></article>
+          <article><span>7日内活跃</span><strong data-metric-recent>0</strong></article>
+        </section>
+
+        <div class="proposal-toolbar">
+          <label class="proposal-search"><span>搜索</span><input type="search" data-search placeholder="项目、客户或标识" /></label>
+          <div><button class="zf-btn small ghost active" type="button" data-filter="all">全部</button><button class="zf-btn small ghost" type="button" data-filter="active">开放中</button><button class="zf-btn small ghost" type="button" data-filter="disabled">已停用</button></div>
+        </div>
+
+        <section class="proposal-card-list" data-proposal-list aria-live="polite"></section>
+
+      </main>
+    </div>
+
+    <div class="zf-modal" data-proposal-modal><section class="zf-modal-card" role="dialog" aria-modal="true" aria-labelledby="proposal-modal-title">
+      <header class="zf-modal-head"><div><p class="zf-kicker">Proposal Profile</p><h2 id="proposal-modal-title" data-proposal-modal-title>新建提案</h2></div><button class="zf-btn small ghost" type="button" data-close-proposal>关闭</button></header>
+      <form data-proposal-form><input type="hidden" name="id" /><div class="zf-form-grid">
+        <div class="zf-field wide"><label for="p-title">提案名称</label><input id="p-title" name="title" required placeholder="例如：湘江玥别墅地下室空气环境提案" /></div>
+        <div class="zf-field"><label for="p-customer">客户称呼</label><input id="p-customer" name="customerName" required placeholder="湘江玥业主" /></div>
+        <div class="zf-field"><label for="p-slug">项目标识</label><input id="p-slug" name="slug" required pattern="[a-z0-9-]+" placeholder="xiangjiangyue" /></div>
+        <div class="zf-field wide"><label for="p-path">提案网页路径</label><input id="p-path" name="contentPath" required placeholder="/proposal/xiangjiangyue/" /></div>
+        <div class="zf-field wide"><label for="p-description">备注</label><textarea id="p-description" name="description" rows="3" placeholder="内部备注，客户不会看到"></textarea></div>
+        <div class="zf-field" data-status-field hidden><label for="p-status">开放状态</label><select id="p-status" name="status"><option value="active">开放</option><option value="disabled">停用</option></select></div>
+      </div><p class="zf-error" data-proposal-error></p><button class="zf-btn primary" type="submit" data-proposal-submit>保存提案</button></form>
+    </section></div>
+
+    <div class="zf-modal" data-key-modal><section class="zf-modal-card" role="dialog" aria-modal="true" aria-labelledby="key-modal-title">
+      <header class="zf-modal-head"><div><p class="zf-kicker">Access Permission</p><h2 id="key-modal-title">生成客户访问密钥</h2></div><button class="zf-btn small ghost" type="button" data-close-key>关闭</button></header>
+      <form data-key-form><input type="hidden" name="proposal" /><div class="zf-form-grid">
+        <div class="zf-field wide"><label for="key-project">对应提案</label><input id="key-project" name="proposalTitle" readonly /></div>
+        <div class="zf-field wide"><label for="key-customer">客户称呼</label><input id="key-customer" name="customerName" required /></div>
+        <div class="zf-field"><label for="key-days">有效天数</label><input id="key-days" name="validDays" type="number" min="1" max="30" value="7" required /></div>
+        <div class="zf-field"><label for="key-views">允许授权次数</label><input id="key-views" name="maxViews" type="number" min="1" max="99" value="3" required /></div>
+      </div><p class="key-hint">建议 3 次：手机、电脑各一次，并预留一次更换浏览器。</p><p class="zf-error" data-key-error></p><button class="zf-btn primary" type="submit">生成密钥</button></form>
+      <div class="key-result" data-key-result hidden><p>原始密钥只显示这一次</p><strong data-new-code></strong><div><button class="zf-btn small primary" type="button" data-copy-package>复制入口＋密钥</button></div><small data-new-expiry></small></div>
+    </section></div>
+
+    <div class="zf-modal" data-permission-modal><section class="zf-modal-card" role="dialog" aria-modal="true" aria-labelledby="permission-modal-title">
+      <header class="zf-modal-head"><div><p class="zf-kicker">Permission Settings</p><h2 id="permission-modal-title">修改访问权限</h2></div><button class="zf-btn small ghost" type="button" data-close-permission>关闭</button></header>
+      <form data-permission-form><input type="hidden" name="id" /><div class="zf-form-grid">
+        <div class="zf-field wide"><label for="permission-customer">客户称呼</label><input id="permission-customer" name="customerName" required /></div>
+        <div class="zf-field"><label for="permission-expiry">有效至</label><input id="permission-expiry" name="expiresAt" type="datetime-local" required /></div>
+        <div class="zf-field"><label for="permission-views">允许授权次数</label><input id="permission-views" name="maxViews" type="number" min="1" max="99" required /></div>
+        <div class="zf-field"><label for="permission-status">状态</label><select id="permission-status" name="status"><option value="active">有效</option><option value="revoked">撤销</option></select></div>
+      </div><p class="zf-error" data-permission-error></p><button class="zf-btn primary" type="submit">保存权限</button></form>
+    </section></div>
+
+    <script src="../maintenance-system.js?v=20260812-proposal-admin-v3"></script>
+    <script src="proposal-admin.js?v=20260817-sales-insights-v1" defer></script>
+  </body>
+</html>
