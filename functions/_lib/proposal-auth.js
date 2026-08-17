@@ -3,6 +3,31 @@ import { sha256 } from './crypto.js';
 
 export const PROPOSAL_COOKIE = 'zf_proposal';
 
+export function proposalVisitorContext(request) {
+  const cf = request.cf || {};
+  const userAgent = request.headers.get('user-agent') || '';
+  let deviceType = 'desktop';
+  if (/ipad|tablet|playbook|silk/i.test(userAgent)) deviceType = 'tablet';
+  else if (/mobile|iphone|ipod|android/i.test(userAgent)) deviceType = 'mobile';
+
+  let browserName = '其他浏览器';
+  if (/MicroMessenger/i.test(userAgent)) browserName = '微信';
+  else if (/Edg\//i.test(userAgent)) browserName = 'Edge';
+  else if (/Firefox|FxiOS/i.test(userAgent)) browserName = 'Firefox';
+  else if (/Chrome|CriOS/i.test(userAgent)) browserName = 'Chrome';
+  else if (/Safari/i.test(userAgent)) browserName = 'Safari';
+
+  return {
+    countryCode: cf.country || request.headers.get('cf-ipcountry') || null,
+    region: cf.region || null,
+    regionCode: cf.regionCode || null,
+    city: cf.city || null,
+    timezone: cf.timezone || null,
+    deviceType,
+    browserName
+  };
+}
+
 export async function getProposalSession(context, expectedSlug = null) {
   const token = getCookie(context.request, PROPOSAL_COOKIE);
   if (!token) return { state: 'missing' };
