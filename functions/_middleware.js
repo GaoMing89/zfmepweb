@@ -22,22 +22,67 @@ export async function onRequest(context) {
   if (!isHome || !contentType.includes("text/html") || response.status !== 200) return secured;
 
   return new HTMLRewriter()
-    .on("body", {
+    .on("head", {
       element(element) {
         element.append(`
-          <a href="/proposal-access/" class="zf-private-proposal-key" aria-label="专属提案" title="专属提案">
-            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
-              <path d="M14.5 3a6.5 6.5 0 0 0-5.98 9.03L3 17.55V21h3.45l1.5-1.5H10v-2h2v-2h1.55l.42-.42A6.5 6.5 0 1 0 14.5 3Zm3 5.5a2 2 0 1 1 0-4 2 2 0 0 1 0 4Z"/>
-            </svg>
-            <span>专属提案</span>
-          </a>
-          <style>
-            .zf-private-proposal-key{position:fixed;top:18px;right:22px;z-index:9999;display:inline-flex;align-items:center;gap:8px;height:40px;padding:0 14px;border:1px solid rgba(255,255,255,.24);border-radius:999px;background:#245b4b;color:#fff!important;text-decoration:none!important;font:600 12px/1 Inter,"PingFang SC","Microsoft YaHei",sans-serif;letter-spacing:.03em;box-shadow:0 10px 28px rgba(22,58,48,.20);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);transition:transform .18s ease,box-shadow .18s ease,background .18s ease}
-            .zf-private-proposal-key svg{width:17px;height:17px;fill:currentColor;flex:none}
-            .zf-private-proposal-key:hover{transform:translateY(-1px);background:#1d4d40;box-shadow:0 13px 32px rgba(22,58,48,.26)}
-            .zf-private-proposal-key:focus-visible{outline:3px solid rgba(36,91,75,.24);outline-offset:3px}
-            @media(max-width:760px){.zf-private-proposal-key{top:14px;right:14px;width:42px;height:42px;padding:0;justify-content:center}.zf-private-proposal-key span{display:none}.zf-private-proposal-key svg{width:18px;height:18px}}
+          <style id="zf-proposal-key-restored">
+            html body .desktop-nav > .header-action.zf-proposal-key {
+              display:inline-flex !important;
+              align-items:center !important;
+              justify-content:center !important;
+              flex:0 0 38px !important;
+              width:38px !important;
+              height:38px !important;
+              min-width:38px !important;
+              padding:0 !important;
+              margin-left:4px !important;
+              border:0 !important;
+              border-radius:50% !important;
+              background:#245b4b !important;
+              color:#fff !important;
+              text-decoration:none !important;
+              box-shadow:0 5px 14px rgba(20,70,58,.16) !important;
+              line-height:1 !important;
+              transition:background .18s ease, transform .18s ease, box-shadow .18s ease !important;
+            }
+            html body .desktop-nav > .header-action.zf-proposal-key::after { display:none !important; }
+            html body .desktop-nav > .header-action.zf-proposal-key svg {
+              width:17px !important;
+              height:17px !important;
+              display:block !important;
+              fill:none !important;
+              stroke:currentColor !important;
+              stroke-width:2 !important;
+              stroke-linecap:round !important;
+              stroke-linejoin:round !important;
+            }
+            html body .desktop-nav > .header-action.zf-proposal-key:hover {
+              background:#1c4d40 !important;
+              transform:translateY(-1px) !important;
+              box-shadow:0 7px 18px rgba(20,70,58,.22) !important;
+            }
+            html body .desktop-nav > .header-action.zf-proposal-key:focus-visible {
+              outline:3px solid rgba(36,91,75,.22) !important;
+              outline-offset:3px !important;
+            }
+            @media(max-width:900px){
+              html body .desktop-nav > .header-action.zf-proposal-key { display:none !important; }
+            }
           </style>
+        `, { html: true });
+      }
+    })
+    .on("nav.desktop-nav", {
+      element(element) {
+        element.append(`
+          <a class="header-action zf-proposal-key" href="/proposal-access/" aria-label="专属提案" title="专属提案">
+            <svg viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+              <circle cx="8" cy="15" r="4"></circle>
+              <path d="M11 12l7-7"></path>
+              <path d="M16 5l3 3"></path>
+              <path d="M14.5 8.5l2 2"></path>
+            </svg>
+          </a>
         `, { html: true });
       }
     })
