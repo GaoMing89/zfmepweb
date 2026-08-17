@@ -3224,6 +3224,7 @@ const navigationArchitecture = {
     ],
     specialLabel: "专业专栏",
     specials: [
+      { title: "GF品质住宅给排水系统", note: "GF品牌 · 湖南服务 · 住宅方案", status: "live", href: "gf-water/index.html" },
       { title: "住宅给水与智慧水务", note: "316L · 稳压 · 监测", status: "live", href: "residential-water-supply/index.html" },
       { title: "分质净水与鲜活热水", note: "净水 · 软水 · 循环", status: "live", href: "water-treatment-hot-water/index.html" },
       { title: "静音排水与防臭系统", note: "GF Silenta · PP排水", status: "live", href: "silent-drainage/index.html" }
