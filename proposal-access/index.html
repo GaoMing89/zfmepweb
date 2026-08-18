@@ -5,82 +5,50 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
     <meta name="referrer" content="no-referrer" />
-    <title>专属提案访问｜ZEFENG MEP</title>
-    <link rel="stylesheet" href="/proposal-access/access-entry-v2.css?v=20260818-layout-v2" />
+    <title>专属提案访问｜泽丰住宅机电系统</title>
+    <link rel="stylesheet" href="/proposal-access/access-entry-v2.css?v=20260818-unified-v1" />
   </head>
   <body>
-    <main class="proposal-gateway">
-      <section class="project-story" aria-label="泽丰住宅机电系统">
-        <img class="story-art" src="/proposal-access/access-system-sketch.png?v=20260818-layout-v2" alt="" fetchpriority="high" />
-        <header class="story-header">
-          <a class="brand" href="/" aria-label="返回泽丰官网">
-            <img src="/images/zefeng-logo-mark.webp" alt="" />
-            <span><strong>ZEFENG MEP</strong><small>RESIDENTIAL SYSTEMS</small></span>
-          </a>
-        </header>
+    <div class="proposal-page">
+      <img class="architectural-art" src="/proposal-access/access-system-sketch.png?v=20260818-unified-v1" alt="" fetchpriority="high" />
 
-        <div class="story-copy">
-          <p class="story-eyebrow">A Private Consideration</p>
-          <h1>一席居所，<br />自有它的呼吸与分寸</h1>
-          <p class="story-lead">愿这份提案，为理想生活多添一份从容</p>
+      <header class="site-header">
+        <a class="brand" href="/" aria-label="返回泽丰官网">
+          <img src="/images/zefeng-logo-mark.webp" alt="" />
+          <span><strong>泽丰住宅机电系统</strong><small>PRIVATE PROPOSAL</small></span>
+        </a>
+        <nav class="header-actions" aria-label="提案入口导航">
+          <a href="/proposal-admin-login/">提案管理</a>
+          <a href="/">返回首页 <span aria-hidden="true">↗</span></a>
+        </nav>
+      </header>
 
-          <div class="system-index" aria-label="泽丰住宅机电三大专业系统">
-            <div class="system-item">
-              <span class="system-number">01</span>
-              <strong>给排水系统</strong>
-            </div>
-            <div class="system-item">
-              <span class="system-number">02</span>
-              <strong>地下室专项</strong>
-            </div>
-            <div class="system-item">
-              <span class="system-number">03</span>
-              <strong>室内空气环境</strong>
-            </div>
-          </div>
-        </div>
-
-        <p class="story-foot">ZEFENG PRIVATE PROPOSAL · FOR AUTHORIZED CLIENTS</p>
-      </section>
-
-      <section class="access-panel">
-        <header class="panel-header">
-          <a class="brand brand-mobile" href="/" aria-label="返回泽丰官网">
-            <img src="/images/zefeng-logo-mark.webp" alt="" />
-            <span><strong>ZEFENG MEP</strong><small>PRIVATE PROPOSAL</small></span>
-          </a>
-          <a class="home-link" href="/">返回主页 <span aria-hidden="true">↗</span></a>
-        </header>
-
-        <div class="access-content">
-          <div class="key-mark" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false"><circle cx="7.5" cy="15.5" r="3.5"></circle><path d="m10 13 9-9m-3 3 2 2m-5 1 2 2"></path></svg>
-          </div>
-          <p class="eyebrow">Private Client Access</p>
-          <h2>进入您的提案</h2>
-          <p class="lead">请输入泽丰项目顾问发送的访问密钥。验证后，将直接进入对应住宅项目提案。</p>
+      <main class="proposal-main">
+        <section class="access-card" aria-labelledby="proposal-access-title">
+          <p class="eyebrow">A Private Consideration</p>
+          <h1 id="proposal-access-title">一席居所，<br />自有它的呼吸与分寸</h1>
+          <p class="intro">愿这份为住宅悉心准备的提案，为理想生活多添一份从容。</p>
 
           <form id="access-form">
             <label for="access-code">访问密钥</label>
-            <input id="access-code" name="code" type="text" inputmode="text" autocomplete="one-time-code" autocapitalize="characters" spellcheck="false" placeholder="请输入完整访问密钥" required />
-            <button type="submit">验证并进入 <span aria-hidden="true">→</span></button>
+            <div class="access-action">
+              <input id="access-code" name="code" type="text" inputmode="text" autocomplete="one-time-code" autocapitalize="characters" spellcheck="false" placeholder="请输入项目顾问发送的密钥" required />
+              <button type="submit">打开提案 <span aria-hidden="true">→</span></button>
+            </div>
             <p id="access-error" class="error" role="alert" aria-live="polite"></p>
           </form>
 
-          <div class="privacy-note">
-            <span class="privacy-icon" aria-hidden="true">◇</span>
-            <p><strong>访问保护</strong><small>密钥仅在授权有效期内使用，到期或撤销后将停止访问。</small></p>
+          <div class="access-detail">
+            <span>仅限授权访问</span>
+            <p>密钥在约定期限内有效，到期或撤销后将停止访问。</p>
           </div>
 
-          <div class="admin-block">
-            <div><strong>泽丰内部入口</strong><span>提案、密钥与客户访问记录管理</span></div>
-            <a class="admin-entry" href="/proposal-admin-login/">管理提案 <span aria-hidden="true">→</span></a>
+          <div class="system-scope" aria-label="泽丰住宅机电专业范围">
+            <span>给排水系统</span><i aria-hidden="true"></i><span>地下室专项</span><i aria-hidden="true"></i><span>室内空气环境</span>
           </div>
-        </div>
-
-        <footer class="panel-foot">长沙泽丰暖通设备有限公司</footer>
-      </section>
-    </main>
-    <script src="/proposal-access/access-managed-v1.js?v=20260818-entry-v3" defer></script>
+        </section>
+      </main>
+    </div>
+    <script src="/proposal-access/access-managed-v1.js?v=20260818-unified-v1" defer></script>
   </body>
 </html>
