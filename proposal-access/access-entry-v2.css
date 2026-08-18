@@ -14,7 +14,7 @@ a { color: inherit; }
 
 .proposal-page { position: relative; min-height: 100svh; overflow: hidden; isolation: isolate; background: linear-gradient(115deg, #f8f4ec 0%, #f7f4ed 46%, #f1f5f2 100%); }
 .proposal-page::before { content: ""; position: absolute; z-index: -1; inset: 0; background: linear-gradient(90deg, rgba(248,244,236,.98) 0%, rgba(248,244,236,.84) 34%, rgba(248,244,236,.22) 64%, rgba(248,244,236,0) 100%); pointer-events: none; }
-.architectural-art { position: absolute; z-index: -2; right: 0; bottom: 0; width: min(78vw, 1180px); height: 100%; object-fit: contain; object-position: right bottom; filter: contrast(1.12) saturate(1.06); }
+.architectural-art { position: absolute; z-index: -2; right: 0; top: 0; width: min(74vw, 1360px); height: 100%; object-fit: cover; object-position: 60% center; filter: contrast(1.12) saturate(1.06); }
 
 .site-header { position: relative; z-index: 2; width: min(100% - 64px, 1280px); min-height: 96px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; gap: 28px; }
 .brand { display: inline-flex; align-items: center; gap: 13px; text-decoration: none; }
@@ -27,7 +27,7 @@ a { color: inherit; }
 .header-actions a:hover { text-decoration: underline; text-underline-offset: 5px; }
 .header-actions span { margin-left: 5px; }
 
-.proposal-main { position: relative; z-index: 1; width: min(100% - 64px, 1280px); min-height: calc(100svh - 96px); margin: 0 auto; padding: clamp(28px, 6vh, 68px) 0 72px; display: flex; align-items: center; }
+.proposal-main { position: relative; z-index: 1; width: min(100% - 64px, 1280px); min-height: calc(100svh - 96px); margin: 0 auto; padding: clamp(44px, 8vh, 82px) 0 72px; display: flex; align-items: flex-start; }
 .access-card { width: min(100%, 620px); padding: clamp(38px, 4vw, 56px); border: 1px solid rgba(13,102,88,.14); border-radius: 8px; background: rgba(255,255,255,.88); box-shadow: 0 24px 70px rgba(37,54,47,.09); backdrop-filter: blur(14px); }
 .eyebrow { margin: 0 0 18px; color: #a8642e; font-size: 9px; font-weight: 700; letter-spacing: .18em; text-transform: uppercase; }
 .access-card h1 { max-width: 520px; margin: 0 0 16px; font-family: "Songti SC", "STSong", "Noto Serif SC", serif; font-size: clamp(38px, 3.6vw, 54px); font-weight: 500; line-height: 1.25; letter-spacing: 0; }
@@ -53,7 +53,7 @@ button:disabled { opacity: .62; cursor: wait; transform: none; }
 @media (max-width: 760px) {
   .proposal-page { overflow: visible; }
   .proposal-page::before { background: linear-gradient(180deg, rgba(248,244,236,.12) 0%, rgba(248,244,236,.92) 260px, #f7f4ed 390px); }
-  .architectural-art { top: 0; bottom: auto; width: 100%; height: 330px; object-position: 62% top; }
+  .architectural-art { top: 0; width: 100%; height: 330px; object-fit: contain; object-position: 62% top; }
   .site-header { width: calc(100% - 36px); min-height: 76px; }
   .brand { gap: 9px; }
   .brand img { width: 29px; height: 29px; }
