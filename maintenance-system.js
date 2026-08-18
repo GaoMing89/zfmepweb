@@ -83,7 +83,10 @@
   async function guard(role) {
     const current = await currentSession();
     if (!current || (role && current.role !== role)) {
-      location.href = role === "admin" ? "../login/index.html?next=admin" : "../login/index.html";
+      const adminTarget = document.body.matches("[data-proposal-admin]") ? "proposals" : "admin";
+      location.href = role === "admin"
+        ? `../login/index.html?next=${adminTarget}`
+        : "../login/index.html";
       return null;
     }
     document.querySelectorAll("[data-user-name]").forEach((node) => { node.textContent = current.name; });
@@ -95,6 +98,15 @@
   function bindLogin() {
     const form = document.querySelector("[data-login-form]");
     if (!form) return;
+    const requestedTarget = new URLSearchParams(location.search).get("next");
+    if (requestedTarget === "proposals" || requestedTarget === "admin") {
+      const title = document.querySelector(".zf-login-box h2");
+      const lead = document.querySelector(".zf-login-box h2 + p");
+      const accountLabel = document.querySelector('label[for="account"]');
+      if (title) title.textContent = requestedTarget === "proposals" ? "进入提案管理中心" : "进入泽丰管理中心";
+      if (lead) lead.textContent = "使用泽丰管理员账号与密码登录。";
+      if (accountLabel) accountLabel.textContent = "管理员账号";
+    }
     form.addEventListener("submit", async (event) => {
       event.preventDefault();
       const button = form.querySelector('button[type="submit"]');
@@ -117,7 +129,9 @@
           user = payload.user;
           sessionCache = user;
         }
-        location.href = user.role === "admin" ? "../admin/index.html" : "../maintenance/index.html";
+        location.href = user.role === "admin"
+          ? (requestedTarget === "proposals" ? "../admin/proposals.html" : "../admin/index.html")
+          : "../maintenance/index.html";
       } catch (failure) {
         errorNode.textContent = failure.message || "暂时无法登录，请稍后重试。";
         errorNode.classList.add("show");

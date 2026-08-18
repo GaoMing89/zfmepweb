@@ -1,70 +1,44 @@
 <!doctype html>
 <html lang="zh-CN">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="robots" content="noindex, nofollow" />
-  <title>专属提案 | ZEFENG MEP</title>
-  <style>
-    :root{color-scheme:light;--green:#245b4b;--deep:#15372f;--ink:#17231f;--muted:#6b7772;--line:#dfe7e3;--bg:#f5f7f6}
-    *{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font-family:Inter,"PingFang SC","Microsoft YaHei",sans-serif}
-    .shell{min-height:100vh;display:grid;grid-template-rows:auto 1fr auto}
-    header{display:flex;align-items:center;justify-content:space-between;padding:24px clamp(22px,5vw,72px)}
-    .brand{display:flex;align-items:center;gap:12px;color:inherit;text-decoration:none}.brand img{width:36px;height:36px;object-fit:contain}.brand strong{display:block;font-size:14px;letter-spacing:.08em}.brand span{display:block;margin-top:3px;color:var(--muted);font-size:10px;letter-spacing:.14em}
-    .back{color:var(--green);font-size:13px;text-decoration:none}
-    main{display:grid;place-items:center;padding:48px 22px 72px}
-    .card{width:min(520px,100%);padding:clamp(34px,5vw,56px);border:1px solid var(--line);border-radius:24px;background:#fff;box-shadow:0 24px 70px rgba(23,55,47,.08)}
-    .key{width:62px;height:62px;display:grid;place-items:center;margin-bottom:30px;border-radius:18px;background:var(--green);color:#fff;font-size:30px;box-shadow:0 16px 34px rgba(36,91,75,.22)}
-    .eyebrow{margin:0 0 12px;color:var(--green);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase}
-    h1{margin:0;font-family:"Noto Serif SC","Songti SC",serif;font-size:clamp(34px,6vw,48px);font-weight:600;line-height:1.2}
-    .lead{margin:18px 0 30px;color:var(--muted);font-size:15px;line-height:1.85}
-    label{display:block;margin-bottom:9px;font-size:13px;font-weight:600}input{width:100%;height:52px;padding:0 16px;border:1px solid #cedbd5;border-radius:12px;background:#fbfcfb;color:var(--ink);font-size:16px;outline:none}input:focus{border-color:var(--green);box-shadow:0 0 0 3px rgba(36,91,75,.10)}
-    button{width:100%;height:52px;margin-top:16px;border:0;border-radius:12px;background:var(--green);color:#fff;font-size:14px;font-weight:700;cursor:pointer}button:disabled{opacity:.6;cursor:wait}
-    .error{min-height:22px;margin:13px 0 0;color:#a23e37;font-size:13px;line-height:1.6}.note{margin:22px 0 0;padding-top:20px;border-top:1px solid var(--line);color:#81908a;font-size:12px;line-height:1.7}
-    footer{padding:0 22px 34px;text-align:center;color:#92a09a;font-size:11px}
-  </style>
-</head>
-<body>
-<div class="shell">
-  <header>
-    <a class="brand" href="/"><img src="/images/zefeng-logo-mark.webp" alt="" /><div><strong>ZEFENG MEP</strong><span>PRIVATE PROPOSAL</span></div></a>
-    <a class="back" href="/">返回官网</a>
-  </header>
-  <main>
-    <section class="card" aria-labelledby="title">
-      <div class="key" aria-hidden="true">⌘</div>
-      <p class="eyebrow">Private Proposal Access</p>
-      <h1 id="title">专属提案</h1>
-      <p class="lead">请输入泽丰顾问发送给您的专属访问密钥。验证成功后，将直接进入对应住宅项目提案。</p>
-      <form id="access-form">
-        <label for="code">访问密钥</label>
-        <input id="code" name="code" type="password" autocomplete="one-time-code" inputmode="text" required autofocus placeholder="请输入专属密钥" />
-        <button id="submit" type="submit">验证并进入提案</button>
-        <p class="error" id="error" role="alert" aria-live="polite"></p>
-      </form>
-      <p class="note">该入口仅用于已获授权的项目客户。访问权限、有效期及查看次数由项目顾问单独配置。</p>
-    </section>
-  </main>
-  <footer>© ZEFENG MEP · 泽丰高端住宅机电系统</footer>
-</div>
-<script>
-(() => {
-  const form = document.getElementById('access-form');
-  const input = document.getElementById('code');
-  const button = document.getElementById('submit');
-  const error = document.getElementById('error');
-  const proposal = new URLSearchParams(location.search).get('proposal') || '';
-  form.addEventListener('submit', async (event) => {
-    event.preventDefault(); error.textContent = ''; button.disabled = true; button.textContent = '正在验证…';
-    try {
-      const response = await fetch('/api/proposal-access', { method:'POST', headers:{'content-type':'application/json'}, body:JSON.stringify({code:input.value.trim(), proposal}) });
-      const data = await response.json().catch(() => ({}));
-      if (!response.ok) throw new Error(data.message || '验证失败，请检查密钥后重试。');
-      location.replace(data.redirect || '/');
-    } catch (failure) { error.textContent = failure.message || '暂时无法验证，请稍后重试。'; input.select(); }
-    finally { button.disabled = false; button.textContent = '验证并进入提案'; }
-  });
-})();
-</script>
-</body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+    <meta name="robots" content="noindex, nofollow, noarchive, nosnippet" />
+    <meta name="referrer" content="no-referrer" />
+    <title>专属提案访问｜ZEFENG MEP</title>
+    <link rel="stylesheet" href="/proposal-access/access.css" />
+  </head>
+  <body>
+    <main class="access-shell">
+      <section class="access-visual" aria-hidden="true">
+        <div class="brand">ZEFENG MEP <span>HIGH-END RESIDENTIAL SYSTEMS</span></div>
+        <div class="visual-copy">
+          <p>PRIVATE PROPOSAL</p>
+          <h1>为这个家建立的<br />专属空气环境提案</h1>
+          <span>内容仅在授权有效期内开放</span>
+        </div>
+      </section>
+
+      <section class="access-panel">
+        <div class="access-card">
+          <p class="eyebrow">Client Access</p>
+          <h2>查看专属提案</h2>
+          <p class="lead">请输入泽丰项目顾问发送给您的访问密钥。</p>
+          <form id="access-form">
+            <label for="access-code">访问密钥</label>
+            <input id="access-code" name="code" type="text" inputmode="text" autocomplete="one-time-code" autocapitalize="characters" spellcheck="false" placeholder="请输入完整访问密钥" required />
+            <button type="submit">验证并查看提案</button>
+            <p id="access-error" class="error" role="alert" aria-live="polite"></p>
+          </form>
+          <div class="privacy-note">
+            <strong>专属资料保护</strong>
+            <span>密钥具有有效期；到期或被撤销后将无法继续查看。请勿转发。</span>
+          </div>
+          <a class="back" href="/">← 返回泽丰官网</a>
+          <a class="admin-entry" href="/login/index.html?next=proposals" title="进入泽丰提案管理中心"><span aria-hidden="true">⚙</span> 管理提案</a>
+        </div>
+      </section>
+    </main>
+    <script src="/proposal-access/access-managed-v1.js" defer></script>
+  </body>
 </html>
