@@ -24,6 +24,6 @@ form.addEventListener('submit', async (event) => {
   } catch (failure) {
     errorNode.textContent = failure.message || '暂时未能完成验证，请稍候再试，或联系您的项目顾问。';
     button.disabled = false;
-    button.textContent = '开启专属提案';
+    button.textContent = '开启您的 MEP 机电VIP 专属提案';
   }
 });
