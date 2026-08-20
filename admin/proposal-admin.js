@@ -56,7 +56,8 @@
     };
     const cities = { changsha: '长沙', shenzhen: '深圳', guangzhou: '广州', foshan: '佛山', shanghai: '上海', beijing: '北京', hangzhou: '杭州', chengdu: '成都' };
     const rawRegion = String(item.region || '').trim();
-    const region = regions[rawRegion.toLowerCase()] || rawRegion;
+    const regionKey = rawRegion.toLowerCase().replace(/\s+(sheng|province|shi)$/i, '');
+    const region = regions[regionKey] || rawRegion;
     const city = String(item.city || '').trim();
     const cityLabel = cities[city.toLowerCase()] || city;
     const location = [region, city && city.toLowerCase() !== rawRegion.toLowerCase() ? cityLabel : ''].filter(Boolean).join(' · ');

@@ -3,7 +3,13 @@ import { sha256 } from './crypto.js';
 
 export const PROPOSAL_COOKIE = 'zf_proposal';
 
-export function proposalVisitorContext(request) {
+function cleanClientValue(value, allowed = null) {
+  const normalized = String(value || '').trim().slice(0, 80);
+  if (!normalized) return null;
+  return allowed && !allowed.includes(normalized) ? null : normalized;
+}
+
+export function proposalVisitorContext(request, client = {}) {
   const cf = request.cf || {};
   const userAgent = request.headers.get('user-agent') || '';
   let deviceType = 'desktop';
@@ -17,15 +23,47 @@ export function proposalVisitorContext(request) {
   else if (/Chrome|CriOS/i.test(userAgent)) browserName = 'Chrome';
   else if (/Safari/i.test(userAgent)) browserName = 'Safari';
 
+  const clientDevice = cleanClientValue(client.deviceType, ['mobile', 'tablet', 'desktop']);
+  const clientBrowser = cleanClientValue(client.browserName, ['微信', 'Edge', 'Firefox', 'Chrome', 'Safari', '其他浏览器']);
+
   return {
     countryCode: cf.country || request.headers.get('cf-ipcountry') || null,
     region: cf.region || null,
     regionCode: cf.regionCode || null,
     city: cf.city || null,
-    timezone: cf.timezone || null,
-    deviceType,
-    browserName
+    timezone: cf.timezone || cleanClientValue(client.timezone) || null,
+    deviceType: clientDevice || deviceType,
+    browserName: browserName === '其他浏览器' ? (clientBrowser || browserName) : browserName
   };
+}
+
+export async function resolveProposalVisitorContext(request, client = {}) {
+  const visitor = proposalVisitorContext(request, client);
+  if (visitor.city) return visitor;
+
+  const ip = request.headers.get('cf-connecting-ip') || '';
+  if (!ip || ip === 'unknown' || ip.length > 64) return visitor;
+
+  const controller = new AbortController();
+  const timeout = setTimeout(() => controller.abort(), 1200);
+  try {
+    const response = await fetch(
+      `https://ipwho.is/${encodeURIComponent(ip)}?fields=success,country_code,region,city,timezone`,
+      { signal: controller.signal, cf: { cacheEverything: true, cacheTtl: 86400 } }
+    );
+    if (!response.ok) return visitor;
+    const geo = await response.json();
+    if (!geo?.success) return visitor;
+    visitor.countryCode ||= cleanClientValue(geo.country_code);
+    visitor.region ||= cleanClientValue(geo.region);
+    visitor.city ||= cleanClientValue(geo.city);
+    visitor.timezone ||= cleanClientValue(geo.timezone?.id || geo.timezone);
+  } catch (_) {
+    // Location is supplemental; access and time tracking must still succeed.
+  } finally {
+    clearTimeout(timeout);
+  }
+  return visitor;
 }
 
 export async function getProposalSession(context, expectedSlug = null) {

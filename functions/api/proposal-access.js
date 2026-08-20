@@ -1,6 +1,6 @@
 import { error, json, readJson, sameOrigin, cookie, clientIpPrefix } from '../_lib/http.js';
 import { randomToken, sha256 } from '../_lib/crypto.js';
-import { PROPOSAL_COOKIE, proposalVisitorContext } from '../_lib/proposal-auth.js';
+import { PROPOSAL_COOKIE, resolveProposalVisitorContext } from '../_lib/proposal-auth.js';
 
 const HASH_COLUMNS = ['code_hash','key_hash','access_key_hash','secret_hash','token_hash','hash'];
 const RAW_COLUMNS = ['code','access_code','key_code'];
@@ -74,7 +74,7 @@ export async function onRequestPost(context) {
     const twelveHours = new Date(now + 12 * 60 * 60 * 1000).toISOString();
     const keyExpiry = isoOr(key.expires_at, twelveHours);
     const expiresAt = new Date(Math.min(Date.parse(keyExpiry), Date.parse(twelveHours))).toISOString();
-    const visitor = proposalVisitorContext(context.request);
+    const visitor = await resolveProposalVisitorContext(context.request, body.client);
 
     const fields = [];
     const placeholders = [];

@@ -18,6 +18,24 @@ export async function onRequest(context) {
 
   const url = new URL(context.request.url);
   const contentType = headers.get("content-type") || "";
+  const proposalMatch = url.pathname.match(/^\/proposal\/([a-z0-9-]+)\/(?:index\.html)?$/);
+  if (proposalMatch && contentType.includes("text/html") && response.status === 200) {
+    const slug = proposalMatch[1];
+    return new HTMLRewriter()
+      .on('script[src*="proposal-telemetry.js"]', {
+        element(element) { element.remove(); }
+      })
+      .on("body", {
+        element(element) {
+          element.append(
+            `<script src="/proposal-telemetry.js?v=20260820-analytics-fix-v1" data-proposal="${slug}" defer></script>`,
+            { html: true }
+          );
+        }
+      })
+      .transform(secured);
+  }
+
   const isHome = url.pathname === "/" || url.pathname === "/index.html";
   if (!isHome || !contentType.includes("text/html") || response.status !== 200) return secured;
 
