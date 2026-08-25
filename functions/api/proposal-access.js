@@ -1,6 +1,7 @@
 import { error, json, readJson, sameOrigin, cookie, clientIpPrefix } from '../_lib/http.js';
 import { randomToken, sha256 } from '../_lib/crypto.js';
 import { PROPOSAL_COOKIE, resolveProposalVisitorContext } from '../_lib/proposal-auth.js';
+import { getSession } from '../_lib/auth.js';
 
 const HASH_COLUMNS = ['code_hash','key_hash','access_key_hash','secret_hash','token_hash','hash'];
 const RAW_COLUMNS = ['code','access_code','key_code'];
@@ -53,9 +54,11 @@ export async function onRequestPost(context) {
     if (!key) return error(401, '访问密钥不正确。', 'invalid_key');
 
     const now = Date.now();
+    const adminSession = await getSession(context);
+    const isInternal = Boolean(adminSession && ['admin', 'technician'].includes(adminSession.role));
     if (key.status && key.status !== 'active') return error(403, '该访问密钥已失效。', 'key_revoked');
     if (key.expires_at && Date.parse(key.expires_at) <= now) return error(403, '该访问密钥已到期。', 'key_expired');
-    if (key.max_views != null && key.view_count != null && Number(key.view_count) >= Number(key.max_views)) return error(403, '该访问密钥的授权次数已用尽。', 'key_limit_reached');
+    if (!isInternal && key.max_views != null && key.view_count != null && Number(key.view_count) >= Number(key.max_views)) return error(403, '该访问密钥的授权次数已用尽。', 'key_limit_reached');
 
     let proposal = null;
     if (key.proposal_id != null && proposalCols.has('id')) proposal = await db.prepare('SELECT * FROM proposals WHERE id = ?1 LIMIT 1').bind(key.proposal_id).first();
@@ -101,13 +104,15 @@ export async function onRequestPost(context) {
     add('device_type', visitor.deviceType);
     add('browser_name', visitor.browserName);
     add('active_seconds', 0);
+    add('visitor_type', isInternal ? 'internal' : 'customer');
+    add('internal_user_id', isInternal ? adminSession.user_id : null);
 
     if (!fields.includes(quoted('proposal_key_id')) || !fields.includes(quoted('token_hash')) || !fields.includes(quoted('expires_at'))) {
       return error(503, '提案会话结构不完整。', 'proposal_session_schema_unknown');
     }
 
     await db.prepare(`INSERT INTO proposal_sessions (${fields.join(',')}) VALUES (${placeholders.join(',')})`).bind(...values).run();
-    if (keyCols.has('view_count')) await db.prepare('UPDATE proposal_keys SET view_count = COALESCE(view_count, 0) + 1 WHERE id = ?1').bind(key.id).run();
+    if (!isInternal && keyCols.has('view_count')) await db.prepare('UPDATE proposal_keys SET view_count = COALESCE(view_count, 0) + 1 WHERE id = ?1').bind(key.id).run();
 
     const redirect = String(proposal.content_path || `/proposal/${slug}/`);
     const maxAge = Math.max(60, Math.floor((Date.parse(expiresAt) - now) / 1000));

@@ -14,6 +14,7 @@
   let filter = 'all';
   let freshCode = '';
   const expandedProposals = new Set();
+  const activityFilters = new Map();
 
   const html = app.escapeHtml;
   function parseTime(value) {
@@ -95,11 +96,12 @@
   }
 
   function renderMetrics() {
+    const customerRows = activity.filter((item) => !isInternalVisit(item));
     document.querySelector('[data-metric-total]').textContent = proposals.length;
     document.querySelector('[data-metric-active]').textContent = keys.filter((key) => stateOf(key).label === '有效').length;
-    document.querySelector('[data-metric-views]').textContent = keys.reduce((sum, key) => sum + Number(key.view_count || 0), 0);
+    document.querySelector('[data-metric-views]').textContent = customerRows.length;
     const since = Date.now() - 7 * 86400000;
-    document.querySelector('[data-metric-recent]').textContent = activity.filter((item) => (parseTime(item.last_seen_at)?.getTime() || 0) >= since).length;
+    document.querySelector('[data-metric-recent]').textContent = customerRows.filter((item) => (parseTime(item.last_seen_at)?.getTime() || 0) >= since).length;
   }
 
   function permissionRows(slug) {
@@ -113,6 +115,14 @@
 
   function proposalActivity(slug) {
     return activity.filter((item) => item.slug === slug);
+  }
+
+  function isInternalVisit(item) {
+    return item.visitor_type === 'internal';
+  }
+
+  function customerActivity(slug) {
+    return proposalActivity(slug).filter((item) => !isInternalVisit(item));
   }
 
   function salesInsight(rows) {
@@ -132,33 +142,49 @@
   }
 
   function activityPanel(item) {
-    const rows = proposalActivity(item.slug);
-    const insight = salesInsight(rows);
-    const totalSeconds = rows.reduce((sum, row) => sum + Number(row.active_seconds || 0), 0);
-    const uniqueNetworks = new Set(rows.map((row) => row.ip_prefix).filter(Boolean)).size;
-    const qualified = rows.filter((row) => Number(row.active_seconds || 0) >= 60).length;
-    const latest = rows.reduce((current, row) => {
+    const allRows = proposalActivity(item.slug);
+    const customerRows = allRows.filter((row) => !isInternalVisit(row));
+    const internalRows = allRows.filter(isInternalVisit);
+    const activityFilter = activityFilters.get(item.id) || 'customer';
+    const rows = activityFilter === 'all' ? allRows : activityFilter === 'internal' ? internalRows : customerRows;
+    const insight = salesInsight(customerRows);
+    const totalSeconds = customerRows.reduce((sum, row) => sum + Number(row.active_seconds || 0), 0);
+    const uniqueNetworks = new Set(customerRows.map((row) => row.ip_prefix).filter(Boolean)).size;
+    const qualified = customerRows.filter((row) => Number(row.active_seconds || 0) >= 60).length;
+    const latest = customerRows.reduce((current, row) => {
       if (!current) return row;
       return (parseTime(row.last_seen_at)?.getTime() || 0) > (parseTime(current.last_seen_at)?.getTime() || 0) ? row : current;
     }, null);
-    const visits = rows.map((row) => `<article class="proposal-visit-row">
+    const visits = rows.map((row) => {
+      const internal = isInternalVisit(row);
+      const visitorName = internal ? '我自己' : (row.customer_name || '未命名');
+      const visitorDetail = internal
+        ? `内部访问${row.internal_display_name || row.internal_account ? ` · ${html(row.internal_display_name || row.internal_account)}` : ''}`
+        : `<code>${html(row.code_prefix || '—')}••••</code>`;
+      return `<article class="proposal-visit-row ${internal ? 'internal' : ''}">
       <div><span>首次访问</span><strong>${formatTime(row.created_at)}</strong></div>
-      <div><span>访问人 / 密钥</span><strong>${html(row.customer_name || '未命名')}</strong><small><code>${html(row.code_prefix || '—')}••••</code></small></div>
+      <div><span>访问人 / 身份</span><strong>${html(visitorName)}${internal ? '<b class="internal-visit-badge">内部</b>' : ''}</strong><small>${visitorDetail}</small></div>
       <div><span>地区 / IP 网段</span><strong>${html(formatLocation(row))}</strong><small><code>${html(row.ip_prefix || '—')}</code></small></div>
       <div><span>设备</span><strong>${html(formatDevice(row))}</strong></div>
       <div><span>有效浏览</span><strong>${html(formatDuration(row.active_seconds))}</strong></div>
-      <div><span>最近活跃</span><strong>${formatTime(row.last_seen_at)}</strong></div>
-    </article>`).join('') || '<div class="proposal-analysis-empty">还没有客户访问记录。</div>';
+      <div><span>最近活跃</span><strong>${formatTime(row.last_seen_at)}</strong><button class="visit-classify" type="button" data-classify-visit="${html(row.id)}" data-visitor-type="${internal ? 'customer' : 'internal'}">${internal ? '改为客户访问' : '标记为我自己'}</button></div>
+    </article>`;
+    }).join('') || `<div class="proposal-analysis-empty">${activityFilter === 'internal' ? '还没有内部访问记录。' : '还没有客户访问记录。'}</div>`;
     return `<section class="proposal-analysis" data-analysis-panel="${html(item.id)}">
       <header class="proposal-analysis-head"><div><span>销售跟进信号</span><strong class="sales-signal ${insight.cls}">${insight.level}</strong></div><p>${html(insight.advice)}</p></header>
       <div class="proposal-analysis-metrics">
-        <div><span>访问会话</span><strong>${rows.length}</strong></div>
+        <div><span>客户访问</span><strong>${customerRows.length}</strong></div>
         <div><span>有效阅读 ≥ 1分钟</span><strong>${qualified}</strong></div>
         <div><span>累计有效浏览</span><strong>${html(formatDuration(totalSeconds))}</strong></div>
         <div><span>访问网络数</span><strong>${uniqueNetworks}</strong></div>
         <div><span>最近活跃</span><strong>${formatTime(latest?.last_seen_at)}</strong></div>
       </div>
-      <p class="proposal-analysis-note">访问人按专属密钥标注；密钥可能被转发。IP 仅显示网段和约略地区，不能单独作为身份认定依据。</p>
+      <div class="activity-filter" role="group" aria-label="访问记录筛选">
+        <button class="${activityFilter === 'customer' ? 'active' : ''}" type="button" data-activity-filter="customer" data-proposal-id="${html(item.id)}">客户访问 · ${customerRows.length}</button>
+        <button class="${activityFilter === 'internal' ? 'active' : ''}" type="button" data-activity-filter="internal" data-proposal-id="${html(item.id)}">内部访问 · ${internalRows.length}</button>
+        <button class="${activityFilter === 'all' ? 'active' : ''}" type="button" data-activity-filter="all" data-proposal-id="${html(item.id)}">全部 · ${allRows.length}</button>
+      </div>
+      <p class="proposal-analysis-note">销售判断仅统计客户访问；已登录管理员的查看会自动识别为内部访问。IP 只显示约略地区，不能单独作为身份依据。</p>
       <div class="proposal-visit-list">${visits}</div>
     </section>`;
   }
@@ -167,11 +193,15 @@
     const query = document.querySelector('[data-search]').value.trim().toLowerCase();
     const shown = proposals.filter((item) => (filter === 'all' || item.status === filter) && (!query || `${item.title} ${item.customer_name || ''} ${item.slug}`.toLowerCase().includes(query)));
     list.innerHTML = shown.map((item) => {
-      const rows = proposalActivity(item.slug);
+      const rows = customerActivity(item.slug);
+      const latestCustomer = rows.reduce((current, row) => {
+        if (!current) return row;
+        return (parseTime(row.last_seen_at)?.getTime() || 0) > (parseTime(current.last_seen_at)?.getTime() || 0) ? row : current;
+      }, null);
       const expanded = expandedProposals.has(item.id);
       return `<article class="proposal-card ${item.status === 'disabled' ? 'disabled' : ''}">
       <header><div><p>${html(item.customer_name || '未填写客户')}</p><h2>${html(item.title)}</h2><span class="proposal-slug">${html(item.slug)}</span></div><span class="zf-chip ${item.status === 'disabled' ? 'warn' : ''}">${item.status === 'active' ? '开放中' : '已停用'}</span></header>
-      <div class="proposal-card-metrics"><div><span>有效授权</span><strong>${Number(item.active_key_count || 0)}</strong></div><div><span>累计查看</span><strong>${Number(item.total_views || 0)}</strong></div><div><span>最近查看</span><strong class="time-value">${formatTime(item.last_viewed_at)}</strong></div></div>
+      <div class="proposal-card-metrics"><div><span>有效授权</span><strong>${Number(item.active_key_count || 0)}</strong></div><div><span>客户访问</span><strong>${rows.length}</strong></div><div><span>最近客户访问</span><strong class="time-value">${formatTime(latestCustomer?.last_seen_at)}</strong></div></div>
       <div class="proposal-actions"><button class="zf-btn small ghost" type="button" data-preview-proposal="${html(item.id)}">预览</button><button class="zf-btn small ghost" type="button" data-edit-proposal="${html(item.id)}">编辑</button><button class="zf-btn small primary" type="button" data-new-key="${html(item.id)}">生成密钥</button><button class="zf-btn small analysis-toggle ${expanded ? 'active' : ''}" type="button" data-toggle-analysis="${html(item.id)}" aria-expanded="${expanded}">${expanded ? '收起分析' : `访问分析 · ${rows.length}`}</button><button class="icon-action danger" type="button" data-delete-proposal="${html(item.id)}" aria-label="删除提案">删除</button></div>
       <div class="permission-list"><h3>访问权限</h3>${permissionRows(item.slug)}</div>
       ${expanded ? activityPanel(item) : ''}
@@ -223,6 +253,18 @@
 
   list.addEventListener('click', async (event) => {
     try {
+      const activityFilterButton = event.target.closest('[data-activity-filter]');
+      if (activityFilterButton) {
+        activityFilters.set(activityFilterButton.dataset.proposalId, activityFilterButton.dataset.activityFilter);
+        renderProposals();
+        return;
+      }
+      const classifyVisit = event.target.closest('[data-classify-visit]');
+      if (classifyVisit) {
+        await app.api('/api/admin/proposal-activity', { method: 'PATCH', body: JSON.stringify({ id: classifyVisit.dataset.classifyVisit, visitorType: classifyVisit.dataset.visitorType }) });
+        await loadAll();
+        return;
+      }
       const editProposal = event.target.closest('[data-edit-proposal]'); if (editProposal) return openProposal(proposals.find((x) => x.id === editProposal.dataset.editProposal));
       const previewProposal = event.target.closest('[data-preview-proposal]'); if (previewProposal) return openKey(proposals.find((x) => x.id === previewProposal.dataset.previewProposal));
       const newKey = event.target.closest('[data-new-key]'); if (newKey) return openKey(proposals.find((x) => x.id === newKey.dataset.newKey));
