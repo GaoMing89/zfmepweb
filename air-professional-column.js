@@ -110,15 +110,24 @@ const AIR_TOPICS = {
     models:["大平层：卧室夜间新风除湿","多层住宅：分层风量与冷凝排水","地下复合住宅：高湿区域独立控制"]
   },
   pointexhaust: {
-    title:"定点排风系统", kicker:"REMOVE POLLUTANTS AT THE SOURCE", hero:"generated-air-scenes-v2/air-v2-bathroom-comfort.webp", secondary:"bathroom-negative-pressure.webp", closing:"generated-air-scenes-v2/air-v2-music-collection.webp",
-    claim:"气味、湿气和污染物，应该在扩散以前从源头离开。",
-    lead:"卫生间、衣帽间、家政、设备间与特殊空间需要不同排风时序和压差。定点排风必须有对应补风路径。",
-    tags:["源头捕集","异味控制","排湿","负压边界"],
-    outcomes:[["异味不过房","污染空间保持受控负压。"],["湿气快离开","淋浴后按湿度或延时持续排风。"],["衣物更干爽","衣帽间和家政区减少气味与水汽积累。"],["设备不串味","排风出口、止回和竖井组织正确。"],["全屋仍平衡","排走空气的同时提供可控补风。"]],
-    flow:["污染源识别","排风量","捕集位置","支管与止回","室外排放","补风与联动"],
-    compare:["所有空间共用一种风量|排风口离污染源很远|开排风后全屋无序负压","按气味、湿度和使用时序分类|排风口靠近污染发生位置|补风、止回与运行延时一起设计"],
-    params:["设计排风量","局部捕集速度","房间压差","延时/湿控逻辑","支管阻力","出口位置"],
-    models:["双卫大平层：独立湿控排风","多层住宅：竖井与止回平衡","大宅：卫生间、衣帽与家政分类排风"]
+    title:"洁风智慧排风系统", kicker:"JIEFENG SMART EXHAUST · POINT SOURCE CONTROL", hero:"../deliverables/洁风智慧排风安装说明/assets/products/jiefeng-jfkj220-main.jpg", secondary:"../deliverables/洁风智慧排风安装说明/assets/bathroom-negative-pressure.png", closing:"../deliverables/洁风智慧排风安装说明/assets/products/jiefeng-jfkj220-main.jpg",
+    claim:"卫生间的湿气和异味，应在源头被持续带走。",
+    lead:"洁风 JFKJ-220 以低风量持续运行，在湿度、CO、CO₂、VOC 或人感变化时自动增强排风；通过清晰的补风、支管、止回和室外排放路径，让卫生间保持可维护的受控负压。",
+    tags:["洁风 JFKJ-220","持续负压","湿度 / 人感联动","APP 可调"],
+    quoteHref:"../proposal/jiefeng-smart-exhaust-quote/",
+    quoteLabel:"查看洁风智慧排风报价单",
+    materialsIntro:"这套系统不是把换气扇装上墙，而是把主机、末端、管路、补风和调试边界一次组织清楚。以下配置依据洁风智慧排风安装说明 V3.4 整理。",
+    materials:[
+      ["JFKJ-220 智慧排风主机","最大风量 220–250 m³/h，最大功率 26 W，主机侧 24 V DC；支持温度、湿度、CO、CO₂、VOC 与雷达人感联动。","../deliverables/洁风智慧排风安装说明/assets/products/jiefeng-jfkj220-main.jpg"],
+      ["从生活区补入，向室外有序排出","空气经卫生间低位与吊顶末端汇入主机，再通过 DN110 室外主管、止回阀和防雨帽排至室外，避免湿气和异味在室内迁移。","../deliverables/洁风智慧排风安装说明/assets/bathroom-negative-pressure.png"],
+      ["每一路都能调，后期还可维护","4 路支路配置风量调节阀 / 可调适配器、末端软接与风口；主机检修口推荐 450 × 400 mm，绝对不得小于 400 × 400 mm。","../deliverables/洁风智慧排风安装说明/assets/materials/05-dn75-valve-adapter.jpg"],
+      ["安装边界提前说清楚","本次标准配置包含主机、安装辅材、一期与二期安装调试；室外墙钻孔、装修开孔、检修口制作等未列项目按现场边界另行确认。","../deliverables/洁风智慧排风安装说明/assets/toilet/dn50-toilet-exhaust-tee.jpg"]
+    ],
+    outcomes:[["异味不过房","污染空间保持受控负压，排风点靠近气味与湿气发生位置。"],["湿气快离开","淋浴后可按湿度或延时持续排风，减少吊顶和墙面潮气滞留。"],["主机低存在感","低风量持续运行，按环境指标与人感自动增速，不依赖手动开关。"],["每路可平衡","支路调节阀、软接和风口共同完成末端风量调试。"],["全屋仍平衡","补风、止回、室外排放和运行延时共同管理负压边界。"]],
+    flow:["污染源识别","补风与负压","JFKJ-220 主机","支路风量平衡","止回与防雨","联动与调试"],
+    compare:["把所有卫生间共用一种风量|只安装排风机，不确认补风路径|管路和风口装完后没有逐路调试","按湿度、异味和使用时序组织排风|主机、支路、止回与室外排放成完整路径|每路可调并保留检修与维护条件"],
+    params:["最大风量 220–250 m³/h","主机 24 V DC / 26 W","4 路 DN75 / DN110 支路","室外主管 DN110 / 墙孔 Ø120","主机检修口 ≥ 400 × 400 mm","湿度、人感、CO₂ / VOC 与 APP"],
+    models:["单卫住宅：持续低风量＋湿度增速","多卫大平层：支路平衡与室外止回","大宅复合空间：卫生间、衣帽与家政分类排风"]
   },
   constanthumidity: {
     title:"恒温恒湿系统", kicker:"STABILITY ACROSS HOURS AND SEASONS", hero:"five-constant-hero-breathing-20260718.jpg", secondary:"doas-science-thermal-comfort-20260718.jpg", closing:"five-constant-closing-generated.png",
@@ -185,12 +194,16 @@ const outcomeNames=["01 RESULT","02 RESULT","03 RESULT","04 RESULT","05 RESULT"]
 const flowNums=["01","02","03","04","05","06"];
 const modelNames=["MODEL 01","MODEL 02","MODEL 03"];
 const [bad,good]=d.compare.map(s=>s.split("|"));
+const topicImage=(src)=>src.startsWith("../")||src.startsWith("/")?src:`../images/${src}`;
+const quoteAction=d.quoteHref?`<a class="wp-button wp-button--quote" href="${d.quoteHref}">${d.quoteLabel||"查看报价单"}</a>`:"";
+const materialsMarkup=d.materials?`<section class="wp-section wp-specialist" id="jiefeng-smart-exhaust"><header class="wp-section-head"><div><p class="wp-kicker">JIEFENG SMART EXHAUST</p><h2>把智慧排风做成一套可以施工、调试和维护的系统。</h2></div><div>${d.materialsIntro||""}</div></header><div class="wp-specialist-grid">${d.materials.map(([title,text,image])=>`<article class="wp-specialist-card"><figure><img src="${topicImage(image)}" alt="${title}"></figure><div><strong>${title}</strong><p>${text}</p></div></article>`).join("")}</div></section>`:"";
 document.querySelector("#air-topic-main").innerHTML=`
-<section class="wp-hero"><img src="../images/${d.hero}" alt="${d.title}住宅场景"><div class="wp-hero-copy"><p class="wp-kicker">${d.kicker}</p><h1>${d.claim}</h1><p class="wp-hero-lead">${d.lead}</p><div class="wp-hero-tags">${d.tags.map(x=>`<span>${x}</span>`).join("")}</div></div></section>
+<section class="wp-hero"><img src="${topicImage(d.hero)}" alt="${d.title}住宅场景"><div class="wp-hero-copy"><p class="wp-kicker">${d.kicker}</p><h1>${d.claim}</h1><p class="wp-hero-lead">${d.lead}</p><div class="wp-hero-tags">${d.tags.map(x=>`<span>${x}</span>`).join("")}</div>${quoteAction?`<div class="wp-hero-actions">${quoteAction}</div>`:""}</div></section>
 <section class="wp-section" id="outcomes"><header class="wp-section-head"><div><p class="wp-kicker">LIVED OUTCOMES</p><h2>设备退后，生活结果应该走到前面。</h2></div><div>${d.lead}</div></header><div class="wp-outcomes">${d.outcomes.map((x,i)=>`<article class="wp-card"><span>${outcomeNames[i]}</span><strong>${x[0]}</strong><p>${x[1]}</p></article>`).join("")}</div></section>
-<section class="wp-section wp-system" id="system" style="--section-image:url('../images/${d.secondary}')"><header class="wp-section-head"><div><p class="wp-kicker">SYSTEM ROUTE</p><h2>先建立完整判断路径，再谈设备组合。</h2></div><div>每一段都必须可计算、可施工、可调试，并在真实运行中持续成立。</div></header><div class="wp-flow">${d.flow.map((x,i)=>`<article><span>${flowNums[i]}</span><strong>${x}</strong><p>作为完整系统路径中的必要判断与交付节点。</p></article>`).join("")}</div></section>
+${materialsMarkup}
+<section class="wp-section wp-system" id="system" style="--section-image:url('${topicImage(d.secondary)}')"><header class="wp-section-head"><div><p class="wp-kicker">SYSTEM ROUTE</p><h2>先建立完整判断路径，再谈设备组合。</h2></div><div>每一段都必须可计算、可施工、可调试，并在真实运行中持续成立。</div></header><div class="wp-flow">${d.flow.map((x,i)=>`<article><span>${flowNums[i]}</span><strong>${x}</strong><p>作为完整系统路径中的必要判断与交付节点。</p></article>`).join("")}</div></section>
 <section class="wp-section" id="boundary"><header class="wp-section-head"><div><p class="wp-kicker">FROM EQUIPMENT TO SYSTEM</p><h2>有设备，不等于系统已经成立。</h2></div><div>品质住宅的差异，来自负荷、边界、控制和交付是否被组织成一套逻辑。</div></header><div class="wp-compare"><article><h3>常见的设备式做法</h3><ul>${bad.map(x=>`<li>${x}</li>`).join("")}</ul></article><article><h3>完整的系统式做法</h3><ul>${good.map(x=>`<li>${x}</li>`).join("")}</ul></article></div><div class="wp-boundary"><strong>选择边界：</strong>本专栏不提供脱离建筑条件的固定套餐。品牌和型号必须服从逐室负荷、气候、人员、空间、噪声、检修与长期运行要求。</div></section>
 <section class="wp-section" id="parameters"><header class="wp-section-head"><div><p class="wp-kicker">DESIGN · TEST · RECORD</p><h2>关键参数必须能够被现场验证。</h2></div><div>以下为项目沟通与验收维度，具体目标值依据现行规范、建筑条件和家庭需求确定。</div></header><div class="wp-parameters">${d.params.map((x,i)=>`<article class="wp-param"><em>0${i+1}</em><strong>${x}</strong><p>设计阶段明确目标与测点，调试阶段记录实测结果和运行边界。</p></article>`).join("")}</div></section>
 <section class="wp-section" id="models"><header class="wp-section-head"><div><p class="wp-kicker">THREE DESIGN MODELS</p><h2>住宅不同，系统判断的起点也不同。</h2></div><div>以下为设计沟通模型，不代表真实案例或固定品牌套餐。</div></header><div class="wp-models">${d.models.map((x,i)=>{const [name,note]=x.split("：");return `<article class="wp-model"><b>${modelNames[i]}</b><h3>${name}</h3><dl><div><dt>核心任务</dt><dd>${note}</dd></div><div><dt>设计方式</dt><dd>依据逐室负荷、使用时间和建筑边界完成系统深化。</dd></div><div><dt>交付结果</dt><dd>参数、控制、测试和维护资料完整留档。</dd></div></dl></article>`}).join("")}</div></section>
 <section class="wp-section" id="delivery"><header class="wp-section-head"><div><p class="wp-kicker">DESIGN TO OPERATION</p><h2>空气系统的价值，要在入住以后持续成立。</h2></div><div>从负荷判断到季节复核，完整交付不能停在设备通电。</div></header><div class="wp-delivery">${["需求与边界","负荷计算","空间深化","洁净施工","联合调试","季节复核"].map((x,i)=>`<article><span>0${i+1}</span><strong>${x}</strong><p>形成对应记录并交付长期运行。</p></article>`).join("")}</div></section>
-<section class="wp-consult" style="--closing-image:url('../images/${d.closing}')"><p class="wp-kicker">AIR SHOULD SERVE LIFE</p><h2>${d.claim}</h2><p>${d.lead}</p><a class="wp-button" href="../index.html#project-access-contact">提交住宅空气信息</a></section>`;
+<section class="wp-consult" style="--closing-image:url('${topicImage(d.closing)}')"><p class="wp-kicker">AIR SHOULD SERVE LIFE</p><h2>${d.claim}</h2><p>${d.lead}</p><a class="wp-button" href="../index.html#project-access-contact">提交住宅空气信息</a>${quoteAction}</section>`;
